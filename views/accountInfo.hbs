@@ -1,0 +1,33 @@
+<h1>{{email}}</h1>
+<div class="pure-g">
+	<div class="pure-u-1-2">
+		<label>Created</label>
+		<div>{{date createdAt}}</div>
+		<label>Auto payment</label>
+		<div>{{#if stripe_customer_id}} Yes {{else}} No {{/if}}</div>
+		<label>Updated</label>
+		<div>{{date updatedAt}}</div>
+		{{#is app.id objectId}}
+			<a href='/_/account_info/edit' class='pure-button pure-button-primary'>Edit Information</a>
+		{{/is}}
+	</div>
+	<div class="pure-u-1-2">
+		<label for="email">Email</label> 
+		<p>{{email}}</p> 
+		{{#if phone}}
+			<label for="phone">Phone</label> 
+			<p>{{phone}}</p>
+		{{/if}}
+		{{#if address_1}}
+			<h5> Billing Address </h5>
+			<label for="address_1">Address 1</label> 
+			<p>{{address_1}}</p>
+			<label for="address_2">Address 2</label> 
+			<p>{{address_2}}</p>
+			<label for="city">City</label>
+			<p>{{city}}</p>
+			<label for="zip">Zip</label> 
+			<p>{{zip}}</p>
+		{{/if}}
+	</div>
+</div>

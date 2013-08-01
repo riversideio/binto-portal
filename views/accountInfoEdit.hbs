@@ -1,0 +1,31 @@
+<h1>{{email}}</h1>
+<div class="pure-g">
+	<div class="pure-u-1-2">
+		<form class="pure-form pure-form-stacked">
+			<fieldset>
+				<label for="email">Email</label> 
+				<input value="{{email}}" name="email" type="text" id="email" class="pure-u-2-3"/>
+				<label for="phone">Phone</label> 
+				<input value="{{phone}}" name="phone" type="text" id="phone" class="pure-u-2-3"/>
+				<h5> Billing Address </h5>
+				<label for="address_1">Address 1</label> 
+				<input value="{{address_1}}" name="address_1" type="text" id="address_1" class="pure-u-2-3"/>
+				<label for="address_2">Address 2</label> 
+				<input value="{{address_2}}" name="address_2" type="text"id="address_2" class="pure-u-2-3"/>
+				<label for="city">City</label>
+				<input value="{{city}}" name="city" type="text" id="city" class="pure-u-2-3"/>
+				<label for="zip">Zip</label> 
+				<input value="{{zip}}" name="zip" type="text" id="zip" class="pure-u-2-3"/>
+			</fieldset>
+		</form>
+	</div>
+	<div class="pure-u-1-2">
+		<label>Created</label>
+		<div>{{date createdAt}}</div>
+		<label>Auto payment</label>
+		<div><em>This info is editable in the change plans section</em></div>
+		<label>Updated</label>
+		<div>{{date updatedAt}}</div>
+		<button disabled="" class='pure-button'>Saved</button>
+	</div>
+</div>

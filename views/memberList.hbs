@@ -1,0 +1,11 @@
+<h3>{{models.length}} Members</h3>
+<ul>
+{{#each models}}
+	{{! probably should turn this into its own view }}
+	<li>
+		<p>
+			<a href="/members/{{objectId}}">{{email}}</a>
+		</p>
+	</li>
+{{/each}}
+</ul>

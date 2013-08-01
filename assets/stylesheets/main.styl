@@ -1,0 +1,112 @@
+@import "libs/pure-min.css"
+
+blue = #0078e7
+
+.center
+	text-align center
+
+.left
+	text-align left
+
+.right
+	text-align right
+
+label
+	color #444
+	font-size 0.8em
+
+#loading
+	position fixed
+	top 30px
+	left 40px
+	width 70px
+	height 70px
+	background #fff url('/images/loading.gif') center no-repeat
+	display none
+	letter-spacing 1em
+
+.loading
+	#loading
+		display block
+
+#layout
+	padding-left: 500px;
+
+#main, #nav, #list
+	> div
+		padding 20px
+
+#nav, #list
+	position fixed
+	top 0
+	bottom 0
+	overflow auto
+
+#nav
+	#logo
+		background white
+		padding 10px
+		margin-top 20px
+		border-radius 10px
+	width 150px
+	margin-left -500px
+	background #222
+	color #fff
+	ul
+		list-style-type none
+		padding 0
+		margin 20px 0
+		li
+			line-height 40px
+			&.active
+				background #333
+
+			a 
+				padding-left 20px
+	a
+		color #fff
+		text-decoration none
+
+
+#list
+	width 350px
+	background #fcfcfc
+	border-right 1px solid #efefef
+	margin-left -350px
+	h3
+		padding-left 20px
+
+
+.riversideio-list
+	ul
+		list-style-type none
+		padding 0
+		margin 0
+		li
+			line-height 40px
+			padding 10px 20px
+			border-bottom 1px solid #efefef
+			box-shadow 0px 1px 0px #fff
+			&:first-of-type
+				border-top 1px solid #efefef
+			p
+				padding 0
+			a
+				color blue
+				text-decoration none
+
+				&:hover, &:active, &:visited
+					color blue
+			&.active
+				background blue
+				p			
+					background blue
+					a
+						color white
+						&:hover, &:active, &:visited
+							color #fff
+			&:after
+				clear both
+
+			&:before
+				clear both
