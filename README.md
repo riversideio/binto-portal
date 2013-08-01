@@ -16,7 +16,6 @@ This app runs off of nodejs &  `grunt` CLI
 
 ```
 npm install -g grunt-cli
-
 ```
 
 ##### install dependecies
@@ -30,7 +29,7 @@ npm install
 
 ```
 grunt server
-``
+```
 
 this command will do a number of things, compile template, watch files and start the app. Also a process will run that will allow the templates to recompiled once the files are changed
 
