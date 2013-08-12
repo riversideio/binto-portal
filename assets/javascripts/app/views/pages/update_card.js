@@ -12,6 +12,9 @@ app.pages = app.pages || {};
 		initialize : function(){
 			this.inputs = {};
 		},
+		defaults : function () {
+			this.$inputs.val('');
+		},
 		postRender : function(){
 
 			var 
@@ -43,18 +46,20 @@ app.pages = app.pages || {};
 		},
 		updateCard: function ( callback ) {
 			var 
+			_this = this,
 			payload = this.compilePayload() || {};
 			payload.session_token = app.get( 'session' );
+			this.$button('Updating');
 
 			var jXhr = $.ajax({
 				type: 'POST',
 				url: app.get('api') + 'users/' + app.get( 'id' ) + '/update_card.json',
 				data : payload,
-				success: function(){
-					console.log( arguments );
+				success: function( res ){
+					_this.$button('Update');
 				},
 				error: function(){
-					console.log( arguments );
+					_this.$button('Update');
 				}
 			});
 
