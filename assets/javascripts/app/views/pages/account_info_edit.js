@@ -16,7 +16,6 @@ app.pages = app.pages || {};
 			_this = this,
 			user = app.get('_user');
 
-			console.log( this )
 			this.inputs.$email = this.$('#email');
 			this.inputs.$phone = this.$('#phone');
 			this.inputs.$address_1 = this.$('#address_1');

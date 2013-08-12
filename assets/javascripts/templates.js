@@ -270,7 +270,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<h3> My Account </h3>\n<ul>\n	<li>\n		<p>\n			<a href=\"/_/account_info\"> Account Information </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/update_card\"> Update Card </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/password_reset\"> Password Reset </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/change_plan\"> Change Plan </a>\n		</p>\n	</li>\n</ul>";
+  return "<h3> My Account </h3>\n<ul>\n	<li>\n		<p>\n			<a href=\"/_/account_info\"> Account Information </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/update_card\"> Update Card </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/password_reset\"> Password Reset </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/change_plan\"> Change Plan </a>\n		</p>\n	</li>\n	<li>\n		<p>\n			<a href=\"/_/make_payment\"> Make Payment </a>\n		</p>\n	</li>\n</ul>";
   });
 
 this["__tmp"]["userNav"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

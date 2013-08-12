@@ -6,6 +6,9 @@ app.pages = app.pages || {};
 	app.pages.updateCard = app.PageBase.extend({
 		className : "riversideio-card",
 		template : "updateCard",
+		events : {
+			'click button': 'updateCard'
+		},
 		initialize : function(){
 			this.inputs = {};
 		},
@@ -16,39 +19,45 @@ app.pages = app.pages || {};
 			_this = this,
 			user = app.get('_user');
 
-			console.log( this )
-			this.inputs.$email = this.$('#email');
-			this.inputs.$phone = this.$('#phone');
-			this.inputs.$address_1 = this.$('#address_1');
-			this.inputs.$address_2 = this.$('#address_2');
-			this.inputs.$zip = this.$('#zip');
-			this.inputs.$city = this.$('#city');
+			this.inputs.$cardNumber = this.$('#card_number');
+			this.inputs.$cardCVC = this.$('#card_cvc');
+			this.inputs.$cardExpMonth = this.$('#card_exp_month');
+			this.inputs.$cardExpYear = this.$('#card_exp_year');
+
 			this.$button = this.$('button');
 			this.$inputs = this.$('input')
 
-			this.$inputs.on('input propertychange', function(){
+		},
+		compilePayload: function ( ) {
+			var 
+			inputs = this.inputs,
+			payload = {};
 
-				clearTimeout( timer );
-				var payload = {};
+			for ( var key in inputs ) {
+				var $el = inputs[ key ];
+				payload[ $el.attr('id') ] = $el.val();
+			}
 
-				_.forEach( _this.inputs, function( $el, key, index ){
-					if( $el ){
-						var value = $el.val();
-						if( value && value.length ){
-							payload[ $el.attr('id') ] = value;
-						}
-					}
-				} )
+			return payload;
 
-				// timer = setTimeout(function(){
-				// 	// console.log( payload );
-				// 	_this.$button.text('Saving...')
-				// 	user.update( payload, function(){
-				// 		_this.$button.text('Saved')
-				// 	});
-				// }, 500 );	
+		},
+		updateCard: function ( callback ) {
+			var 
+			payload = this.compilePayload() || {};
+			payload.session_token = app.get( 'session' );
 
+			var jXhr = $.ajax({
+				type: 'POST',
+				url: app.get('api') + 'users/' + app.get( 'id' ) + '/update_card.json',
+				data : payload,
+				success: function(){
+					console.log( arguments );
+				},
+				error: function(){
+					console.log( arguments );
+				}
 			});
+
 		}
 	});
 }());
