@@ -17,8 +17,13 @@ app.pages = app.pages || {};
 			this.$email = this.$('#email');
 			this.$password = this.$('#password');
 		},
-		defaults : function(){
+		defaults : function( flag ){
 			this.$submit.removeClass('pure-button-disabled');
+			if ( flag ) {
+				this.$email.val('');
+				this.$password.val('');
+			}
+
 		},
 		_tryAuth : function( email, password ){
 			var 
@@ -46,7 +51,8 @@ app.pages = app.pages || {};
 						app.Router.navigate('/_', { trigger : true });
 					}else{
 						app.Router.trigger('done');
-						console.log("failure");
+						app.setNotification("Login unsuccessful");
+						_this.$password.val('');
 					}
 					_this.defaults();
 				},
@@ -64,13 +70,10 @@ app.pages = app.pages || {};
 			email = this.$email.val(),
 			password = this.$password.val();
 
-			console.log( email, password );
-
 			if( email && password ){
 				this._tryAuth( email, password );
 			}
-
-			console.log("logging in");
+	
 		}
 	});
 

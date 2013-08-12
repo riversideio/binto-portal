@@ -10,6 +10,9 @@ var app = app || {};
 			}else{
 				return { 'api' : 'https://victoria-club.herokuapp.com/api/v0/' };
 			}
+		},
+		setNotification: function () {
+			this.content.setNotification.apply( this.content, arguments );
 		}
 	
 	});

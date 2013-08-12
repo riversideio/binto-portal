@@ -1,6 +1,12 @@
 @import "libs/pure-min.css"
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,700")
+@import 'nib'
 
 blue = #0078e7
+red = #c83e00
+
+*
+	font-family 'Roboto'
 
 .center
 	text-align center
@@ -110,3 +116,19 @@ label
 
 			&:before
 				clear both
+
+.notification_bar
+	position fixed
+	top -1000px
+	left 0
+	right 0
+	line-height 40px
+	background red
+	text-align center
+	z-index 9
+	transition all .3s
+	transform translate( 0, 0 )
+	color #fff
+	font-weight 700
+	&.show
+		transform translate( 0, 1000px )

@@ -14,6 +14,8 @@ var app = app || {};
 			this.$main = this.$("#main");
 			this.$nav = this.$('#nav nav');
 			this.$list = this.$('#list');
+			this.$notifications = $('#notifications');
+
 			this.origin = window.location.origin;
 			this.actives = [];
 			this.views = {
@@ -50,7 +52,22 @@ var app = app || {};
 			}
 
 		},
-		setState : function(){
+		setNotification: function ( txt, duration ) {
+
+			var _this = this;
+
+			duration = duration || 5000;
+			clearTimeout( this.timer );
+			this.$notifications
+				.text( txt )
+				.addClass( 'show' );
+
+			this.timer = setTimeout( function () {
+				_this.$notifications
+					.removeClass( 'show' );
+			}, duration );
+		},
+		setState: function(){
 			// console.log( app.Router.rout)
 			var 
 			$links = $('a'),
