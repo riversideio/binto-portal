@@ -11,7 +11,7 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 
 		return $.ajax({
 			// abstract url to allow for better dev
-			url : 'http://192.168.1.87:3000/api/v0/' + endpoint,
+			url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
 			data : data,
 			type : options.method || "post",
 			success : function ( res ) {
