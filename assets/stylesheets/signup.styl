@@ -1,0 +1,46 @@
+@import "libs/pure-min.css"
+@import "libs/clearfix.css"
+@import 'nib'
+
+@import 'ui/colors'
+@import 'ui/typography'
+@import 'ui/forms'
+@import 'ui/buttons'
+
+*
+	font-family 'Cabin'
+
+#site
+	max-width : 500px;
+	margin: 0 auto;
+	padding : 20px 40px;
+	h1
+		color : darkGrey
+		float : left
+		margin-top .27em
+	input:not([type="submit"]) 
+		width: 100%;
+	.pure-button
+		float: right
+		margin: 10px 0
+
+.signup-secure
+	padding: 10px
+	font-size: 14px
+	background: rgba( green, .3 )
+
+.login-switch
+	float: right;
+
+.pure-u-1-3
+	@media screen and ( min-width: 767px )
+		div 
+			padding: 10px;
+		&:first-child
+			div
+				padding-left: 0;
+		
+		&:last-child 
+			div
+				padding-right: 0;		
+	
