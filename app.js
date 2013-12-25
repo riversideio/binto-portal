@@ -54,6 +54,23 @@ router( function( routes ){
   app.get("/_/:method/edit", routes.index.landing);
 
   app.get("/", routes.index.signup);
+  // this is to startup heroku app for visitior 
+  // of our site so when the user clicks signup
+  // the app is started up
+  app.get("/startup.json", 
+    function ( req, res, next ) {
+      res.header('Access-Control-Allow-Credentials', true);
+      res.header('Access-Control-Allow-Origin', req.headers.origin);
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Authorization');
+      next();
+    },
+    function ( req, res ) {
+      res.jsonp( 200, {
+        started : true
+      });
+    }
+  );
 });
 
 // app.get('/u/:username', routes.index);
