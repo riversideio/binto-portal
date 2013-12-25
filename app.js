@@ -46,7 +46,6 @@ router( function( routes ){
   // i want to read all the paths available to the backbone paths 
   // and send it to the corresponding path
   // now it would be sufficent to just send it to the index page every time
-  app.get("/", routes.index.landing);
   app.get("/login", routes.index.landing);
   app.get("/members", routes.index.landing);
   app.get("/members/:id", routes.index.landing);
@@ -54,6 +53,7 @@ router( function( routes ){
   app.get("/_/:method", routes.index.landing);
   app.get("/_/:method/edit", routes.index.landing);
 
+  app.get("/", routes.index.signup);
 });
 
 // app.get('/u/:username', routes.index);

@@ -2,7 +2,6 @@
 
 // this file is mainly for config
 
-
 //= require libs/underscore-min.js
 //= require libs/backbone-min.js
 //= require libs/handlebars.js
