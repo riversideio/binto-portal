@@ -7,13 +7,14 @@ require.config({
 		'moment' : '/javascripts/libs/moment',
 		'__tmp' : '/javascripts/templatesSignup',
 		'form' : '/javascripts/form',
-		'io' : '/javascripts/sdk'
+		'io' : '/javascripts/sdk',
+		'validate' : '/javascripts/validate'
 	}
 });
 
 if ( "_signup" in window ) {
 
-	require(['jquery', 'io', 'form', '__tmp'], function ( $, io, form, __tmp ) {
+	require(['jquery', 'io', 'form', '__tmp', 'validate'], function ( $, io, form, __tmp, validate ) {
 
 		site.$el = $('.main');
 		site.io = io;
@@ -70,10 +71,30 @@ if ( "_signup" in window ) {
 				submitState = $submit.val();
 
 			$submit.on('click', function ( e ) {
+				console.log("click")
+				var _errors = [];
 				e.preventDefault( );
 				$submit.val( options.buttonProccessing || "Submiting...");
 				var values = form.compile( $inputs );
 				if ( values ) {
+					// client side validation
+					for ( var key in values ) {
+						var value = values[ key ],
+							bad = validate ( key, value );
+						if ( bad ) {
+							_errors.push( bad ); 
+						}
+					}
+
+					if ( _errors.length ) {
+						$submit.val(submitState || "Submit" );
+						return error ({
+							error : {
+								message : _errors.join(' ')
+							}
+						})
+					}
+					// end client side validation
 					method( values, function ( err, res ) {
 						$submit.val(submitState || "Submit" );
 						if ( err ) {
