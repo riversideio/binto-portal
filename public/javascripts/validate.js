@@ -1,4 +1,4 @@
-define( 'validate', [], function ( ) {
+define( 'validate', ['moment'], function ( moment ) {
 
 	var type = {
 		'email' : function ( value ) {
