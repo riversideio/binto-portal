@@ -11,7 +11,7 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 
 		return $.ajax({
 			// abstract url to allow for better dev
-			url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
+			url : 'http://localhost:3000/api/v0/' + endpoint,
 			data : data,
 			type : options.method || "post",
 			success : function ( res ) {
@@ -88,7 +88,13 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 			}),
 			checkin : _setCall('checkins.json'),
 			resetPassword : _setCall('users/reset_password.json')
+		},
+		location : {
+			plans : _setCall('location/plans.json', {
+				method : 'get'
+			})
 		}
+
 
 	}
 
