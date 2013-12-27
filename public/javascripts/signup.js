@@ -44,9 +44,27 @@ if ( "_signup" in window ) {
 			if( template === 'login' ) {
 				return loginReady();
 			}
+
+			if ( template === 'forgotpassword' ) {
+				return forgotReady();
+			}
 		}
 
-		function formHandler( options, method, next ) {
+		function formError ( err ) {
+			var msg = "Darn.. there was an unexpected error";
+			if ( err.error ) {
+				msg = err.error.message;
+			}
+			var $el = $('<div/>')
+					.text( msg )
+					.attr('href', '#')
+					.addClass('error_message'),
+				$form = $('form');
+			$('.error_message').remove();
+			$form.prepend( $el );
+		}
+
+		function formHandler( options, method, next, error ) {
 			var $inputs = $('input:not([type="submit"])'),
 				$submit = $('input[type="submit"]'),
 				submitState = $submit.val();
@@ -58,11 +76,26 @@ if ( "_signup" in window ) {
 				if ( values ) {
 					method( values, function ( err, res ) {
 						$submit.val(submitState || "Submit" );
-						if ( err ) return console.log( err );						
+						if ( err ) {
+							if ( error ) error( err );		
+							return;				
+						}
 						if ( next ) next ( res );
 					})
 				}
 			})
+		}
+
+		function forgotReady ( ) {
+			formHandler({
+				buttonProccessing : 'Requesting...',
+			}, io.users.resetPassword, function ( res ) {
+				var email = $('[name="email"]').val();
+				gotoStep( 'login', { 
+					email : email,
+					reset : true
+				} );
+			}, formError )
 		}
 
 		function signupReady( ) {
@@ -71,19 +104,19 @@ if ( "_signup" in window ) {
 			}, io.users.create, function ( res ) {
 				$switch.remove();
 				gotoStep( 'creditcard', {} );
-			});
+			}, formError );
 		}
 
 		function ccReady ( ) {
 			formHandler({}, io.users.updateCard, function ( ) {
 				
-			})
+			}, formError )
 		}
 
 		function ccUpdate ( ) {
 			formHandler({}, io.users.updateCard, function ( ) {
 				gotoStep( 'updatethanks', {} );
-			})
+			}, formError )
 		}
 
 		function loginReady( ) {
@@ -92,6 +125,21 @@ if ( "_signup" in window ) {
 			}, io.users.login, function ( ) {
 				$switch.remove();
 				gotoStep( 'updatepayment', {} );
+			}, function ( err ) {
+				formError( err );
+				var $el = $('<a/>')
+						.text('Forgot your password?')
+						.attr('href', '#')
+						.addClass('forgot-link'),
+					$form = $('form');
+				$('.forgot-link').remove();
+				$el.on('click', function ( ) {
+					var email = $('[name="email"]').val();
+					gotoStep('forgotpassword', {
+						email : email
+					})
+				});
+				$form.append( $el );
 			})
 		}
 
