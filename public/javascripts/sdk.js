@@ -81,7 +81,8 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 				endpointVars : true
 			}),
 			show : _setCall('users/{{id}}/show.json', {
-				endpointVars : true
+				endpointVars : true,
+				method : 'get'
 			}),
 			updateCard : _setCall('users/{{id}}/update_card.json', {
 				endpointVars : true
@@ -89,6 +90,7 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 			checkin : _setCall('checkins.json'),
 			resetPassword : _setCall('users/reset_password.json'),
 			cancelPlan : _setCall('users/cancel_plan.json'),
+			updatePlan : _setCall('users/update_plan.json'),
 		},
 		location : {
 			plans : _setCall('location/plans.json', {

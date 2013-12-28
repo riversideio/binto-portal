@@ -54,6 +54,9 @@ if ( "_signup" in window ) {
 		// preload plans
 		io.location.plans( function ( err, res ) {
 			if ( err ) console.warn( err );
+			for( var i = 0; i < res.plans.length; i += 1 ) {
+				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
+			}
 			site.plans = res;
 		});
 

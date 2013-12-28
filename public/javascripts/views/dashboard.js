@@ -12,7 +12,7 @@ define('dashboardReady', [ 'jquery' ], function ( $ ) {
 				// might want to grab current plan
 			}
 
-			site.gotoStep( view, {} );
+			site.gotoStep( view, payload );
 		});
 	}
 })

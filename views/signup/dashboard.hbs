@@ -2,13 +2,20 @@
 {{#if message}}
 	<p class="message">{{message}}</p>
 {{/if}}
+{{#if plan}}
+	<h3>Current Plan</h3>
+	<p>"{{plan.name}}" at ${{plan.amount}} a {{plan.interval}}</p>
+{{else}}
+	<h3>You have no plan</h3>
+	<p><a href="#" data-view="updateplan">Choose a Plan</a></p>
+{{/if}}
 <p> What would you like to do?</p>
 <ul>
 	<li> 
 		<a href="#" data-view="updateplan">Update Plan</a>
 	</li>
 	<li> 
-		<a href="#" data-view="updatecard">Change Card</a>
+		<a href="#" data-view="updatepayment">Change Card</a>
 	</li>
 	<li> 
 		<a href="#" data-view="cancelplan">Cancel Membership</a>

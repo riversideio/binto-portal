@@ -7,7 +7,9 @@ requirejs.config({
 		'forgotpasswordReady' : '/javascripts/views/forgotpassword',
 		'dashboardReady' : '/javascripts/views/dashboard',
 		'creditcardReady' : '/javascripts/views/creditcard',
-		'updatepaymentReady' : '/javascripts/views/updatepayment'
+		'updatepaymentReady' : '/javascripts/views/updatepayment',
+		'updateplanReady' : '/javascripts/views/updateplan',
+		'cancelplanReady' : '/javascripts/views/cancelplan'
 	}
 });
 
@@ -19,9 +21,21 @@ define('ready',
 	'forgotpasswordReady',
 	'dashboardReady',
 	'creditcardReady',
-	'updatepaymentReady'
+	'updatepaymentReady',
+	'updateplanReady',
+	'cancelplanReady'
 ], 
-function ( login, signup, plans, forgot, dashboard, cc, ccupdate ) {
+function ( 
+	login, 
+	signup, 
+	plans, 
+	forgot, 
+	dashboard, 
+	cc, 
+	ccupdate, 
+	updateplan, 
+	cancelplan 
+) {
 	return {
 		login : login,
 		signup : signup,
@@ -29,7 +43,9 @@ function ( login, signup, plans, forgot, dashboard, cc, ccupdate ) {
 		forgotpassword : forgot,
 		dashboard : dashboard,
 		creditcard : cc,
-		updatepayment : ccupdate
+		updatepayment : ccupdate,
+		updateplan : updateplan,
+		cancelplan : cancelplan
 	}
 
 })
