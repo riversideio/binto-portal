@@ -1,0 +1,13 @@
+<h2>Update Plan</h2>
+<form></form>
+<ul class="plan-list">
+	{{#each plans}}
+		<li>
+			<input type="checkbox" class="switch" data-id="{{id}}">
+			<h3>{{name}}</h3>
+			<p>{{amount}} cents a {{interval}}</p>
+		</li>	
+	{{/each}}
+</ul>
+<a href="#" class="pure-button alert submit-plan">Next</a>
+<a href="#" class="pure-button alert cancel-plan">Cancel</a>
