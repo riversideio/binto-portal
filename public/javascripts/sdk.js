@@ -90,8 +90,12 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 			}),
 			checkin : _setCall('checkins.json'),
 			resetPassword : _setCall('users/reset_password.json'),
-			cancelPlan : _setCall('users/{id}/cancel_plan.json'),
-			updatePlan : _setCall('users/{id}/update_plan.json'),
+			cancelPlan : _setCall('users/{{id}}/cancel_plan.json', {
+				endpointVars : true
+			}),
+			updatePlan : _setCall('users/{{id}}/update_plan.json', {
+				endpointVars : true
+			})
 		},
 		location : {
 			plans : _setCall('location/plans.json', {

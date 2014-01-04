@@ -1,24 +1,24 @@
 <h2>Billing Information</h2>
 <form class=" pure-form pure-form-stacked">
 	<label for="card_number">Credit Card Number</label>
-	<input type="text" name="card_number" id="card_number" value="{{email}}" />
+	<input type="text" name="card_number" id="card_number" autocomplete="off" />
 	<div class="pure-g-r">
 		<div class="pure-u-1-3">
 			<div>
 				<label for="cvc">CVC</label>
-				<input type="text" name="card_cvc" id="cvc" value=""/ >
+				<input type="text" name="card_cvc" id="cvc" value="" maxlength="4"/ >
 			</div>
 		</div>
 		<div class="pure-u-1-3">
 			<div>
 				<label for="card_exp_month">Expiration Month</label>
-				<input type="text" name="card_exp_month" id="card_exp_month" value=""/ >
+				<input type="text" name="card_exp_month" id="card_exp_month" value="" maxlength="2"/ >
 			</div>
 		</div>
 		<div class="pure-u-1-3">
 			<div>
 				<label for="card_exp_year">Expiration Year</label>
-				<input type="text" name="card_exp_year" id="card_exp_year" value=""/ >
+				<input type="text" name="card_exp_year" id="card_exp_year" value="" maxlength="2"/ >
 			</div>
 		</div>
 		<input type="hidden" name="plan" value="{{planId}}">

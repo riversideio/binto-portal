@@ -6,6 +6,14 @@ define('updateplanReady', [ 'jquery' ], function ( $ ) {
 		$submit.on('click', function ( e ) {
 			var $selected = $('input[type="radio"]:checked'),
 				planId = $selected.data('id');
+
+			if ( !site.user.stripe_customer_id && planId ) {
+				return site.gotoStep( 'creditcard', {
+					planId : planId
+				});
+			}
+
+
 			if ( planId ) {
 				$submit.text('Updating...');
 				return site.io.users.updatePlan({
