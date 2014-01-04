@@ -66,7 +66,7 @@ function program5(depth0,data) {
   buffer += "\n";
   stack1 = helpers['if'].call(depth0, depth0.plan, {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n<p> What would you like to do?</p>\n<ul>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Donate</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Make a Payment</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n	</li>\n</ul>\n\n";
+  buffer += "\n<p> What would you like to do?</p>\n<ul>\n	<!--li> \n		<a href=\"#\" data-view=\"donate\">Donate</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Make a Payment</a>\n	</li-->\n	<li> \n		<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n	</li>\n</ul>\n\n";
   return buffer;
   });
 
