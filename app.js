@@ -4,7 +4,6 @@
  */
 
 var 
-
 express = require('express'),
 cons = require('consolidate'),
 hbs = require('hbs'),
@@ -46,15 +45,15 @@ router( function( routes ){
   // i want to read all the paths available to the backbone paths 
   // and send it to the corresponding path
   // now it would be sufficent to just send it to the index page every time
-  app.get("/login", routes.index.landing);
-  app.get("/members", routes.index.landing);
-  app.get("/members/:id", routes.index.landing);
-  app.get("/_", routes.index.landing);
-  app.get("/_/:method", routes.index.landing);
-  app.get("/_/:method/edit", routes.index.landing);
+  // app.get("/login", routes.index.landing);
+  // app.get("/members", routes.index.landing);
+  // app.get("/members/:id", routes.index.landing);
+  // app.get("/_", routes.index.landing);
+  // app.get("/_/:method", routes.index.landing);
+  // app.get("/_/:method/edit", routes.index.landing);
 
   app.get("/", routes.index.signup);
-  // this is to startup heroku app for visitior 
+  // this is to startup heroku app for visitor 
   // of our site so when the user clicks signup
   // the app is started up
   app.get("/startup.json", 
