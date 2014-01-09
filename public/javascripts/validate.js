@@ -43,6 +43,41 @@ define( 'validate', ['moment'], function ( moment ) {
 				return "Card Expiration Year Not Valid"
 			}
 			return;
+		},
+		'_amount' : function ( value ) {
+
+			console.log( value );
+			if( isNaN(+value) ) {
+				return "Amount must be a number";
+			}
+
+			if( +value < 50 ) {
+				return "Minimal amount accepted is $.50";	
+			}
+			return;
+		},
+		'amountFormatted' : function ( value ) {
+			var val = '' + value,
+				decSplit = val.split(/\./),
+				afterDec = decSplit[1],
+				cents = decSplit.join(''),
+				valid;
+
+			if( !afterDec ) {
+				cents = cents + "00";
+				afterDec = "00";
+			}
+
+			valid = type._amount( cents );
+
+			if ( valid ) return valid;
+
+			if ( afterDec.length > 2 || decSplit.length > 2 || afterDec.length < 2 ) {
+				return "Invalid Amount"
+			}
+
+			return;
+
 		}
 	}
 

@@ -1,3 +1,5 @@
+inputFontSize = 20px!important
+
 input[type="text"],
 input[type="tel"],
 input[type="email"],
@@ -6,5 +8,23 @@ textarea
 	border-radius: 0!important
 	border: 1px solid rgba( darkGrey, .3 )!important
 	padding: .8em!important
-	font-size: 20px!important
+	font-size: inputFontSize
 	color : darkGrey
+	&.error 
+		border-color: red!important
+		color red
+
+label[data-fixture]
+	position relative
+	&:after
+		color darkGrey
+		font-family sans-serif
+		position absolute;
+		top: 1.9em;
+		left: .8em;
+		font-size inputFontSize;
+		content attr( data-fixture )
+	&+ input
+		padding-left: 1.5em!important;
+	
+	
