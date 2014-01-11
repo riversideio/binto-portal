@@ -4,27 +4,11 @@ var rendrDir = 'node_modules/rendr';
 var rendrModulesDir = rendrDir + '/node_modules';
 var production = (process.env.NODE_ENV === "production") ? true : false;
 
-module.exports = function(grunt) {
+module.exports = function( grunt ) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     handlebars: {
-      compile: {
-        options: {
-          namespace: "__tmp",
-          processName: function(filename) {
-            return filename.replace('views/', '').replace('.hbs', '');
-          }
-        },
-        src: "views/**/*.hbs",
-        dest: "assets/javascripts/templates.js",
-        filter: function(filepath) {
-          var filename = path.basename(filepath);
-          // Exclude files that begin with '__' from being sent to the client,
-          // i.e. __layout.hbs.
-          return filename.slice(0, 2) !== '__';
-        }
-      },
       signup : {
         options: {
           namespace: "__tmp",
