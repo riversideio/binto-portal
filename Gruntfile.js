@@ -1,7 +1,5 @@
 var path = require('path');
 var stylesheetsDir = 'assets/sass';
-var rendrDir = 'node_modules/rendr';
-var rendrModulesDir = rendrDir + '/node_modules';
 var production = (process.env.NODE_ENV === "production") ? true : false;
 
 module.exports = function( grunt ) {
