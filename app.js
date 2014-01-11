@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express'),
   hbs = require('hbs'),
   router = require("./routes/__loader"),
@@ -13,13 +8,17 @@ var express = require('express'),
 
 app.locals.layout = "__layout";
 
-// basic helpers for __layout
-require( "./assets/handlebarsAssets" )( hbs );
+/*
+basic helpers for __layout
+*/
+hbs.registerHelper( "json", function( context ){
+  return JSON.stringify( context );
+});
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3030);
   app.engine('hbs', hbs.__express);
-  app.set('views', __dirname + '/views');
+  app.set('views', __dirname + '/app/templates');
   app.set('view engine', 'hbs');
   app.use(express.favicon());
   //app.use(express.logger('dev'));
@@ -28,21 +27,15 @@ app.configure(function(){
   app.use(express.cookieSession({key:"__io__", secret: process.env.SECRET_COOKIE || '!!~'}));
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-  app.use(require( 'connect-assets' )() );
+  app.use(express.static(path.join(__dirname, 'app')));
 });
-
-js.root = "/javascripts";
-css.root = "/stylesheets";
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
 router( function( routes ){
-
   app.get("/", routes.index.main);
-
   /*
   this is to startup heroku app for visitor 
   of our site so when the user clicks signup
