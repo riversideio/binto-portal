@@ -52,7 +52,7 @@ if ( "_signup" in window ) {
 
 		site.gotoStep = gotoStep;
 		// preload plans
-		io.location.plans( function ( err, res ) {
+		io.plans.all( function ( err, res ) {
 			if ( err ) console.warn( err );
 			for( var i = 0; i < res.plans.length; i += 1 ) {
 				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
