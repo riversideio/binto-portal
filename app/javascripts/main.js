@@ -1,4 +1,4 @@
-var site = site || {};
+var app = app || {};
 
 require.config({
 	paths : {
@@ -17,23 +17,23 @@ if ( "_signup" in window ) {
 
 	require(['jquery', 'io', 'form', '__tmp'], function ( $, io, form, __tmp ) {
 
-		site.$el = $('.main');
-		site.io = io;
-		site.form = form;
-		site.$switch = $('.login-switch');
+		app.$el = $('.main');
+		app.io = io;
+		app.form = form;
+		app.$switch = $('.login-switch');
 
 		function gotoStep( template, payload ) {
 			var _html = __tmp[ template ]( payload );
-			site.$el.html( _html );
+			app.$el.html( _html );
 			setTimeout( function ( ) {
-				site.currentStep = template;
+				app.currentStep = template;
 				stepReady( template );
 			}, 0)
 		}
 
 		function stepReady( template ) {
-			if ( typeof site.ready[ template ] === 'function' ) {
-				return site.ready[ template ]( );
+			if ( typeof app.ready[ template ] === 'function' ) {
+				return app.ready[ template ]( );
 			}
 		}
 
@@ -46,28 +46,28 @@ if ( "_signup" in window ) {
 		}
 
 		require(['ready'], function( ready ) {
-			site.ready = ready;		
+			app.ready = ready;		
 			gotoStep('signup', _signup || {});
 		})
 
-		site.gotoStep = gotoStep;
+		app.gotoStep = gotoStep;
 		// preload plans
 		io.plans.all( function ( err, res ) {
 			if ( err ) console.warn( err );
 			for( var i = 0; i < res.plans.length; i += 1 ) {
 				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
 			}
-			site.plans = res;
+			app.plans = res;
 		});
 
-		site.$switch.on('click', function ( e ) {
+		app.$switch.on('click', function ( e ) {
 			e.preventDefault( );
 			var values = form.compile( $('input:not([type="submit"])') );
-			if ( site.currentStep === 'signup'){
-				site.$switch.text('Create a Account')
+			if ( app.currentStep === 'signup'){
+				app.$switch.text('Create a Account')
 				return gotoStep( 'login', values || {} );
 			}
-			site.$switch.text('Already have an Account?');
+			app.$switch.text('Already have an Account?');
 			gotoStep( 'signup', values || {} );
 		} )
 

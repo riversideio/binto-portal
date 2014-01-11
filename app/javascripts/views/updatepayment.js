@@ -2,15 +2,15 @@ define('updatepaymentReady', [ 'jquery' ], function ( $ ) {
 	return function ( ) {
 		var $cancel = $('.update-payment-cancel')
 
-		site.form.handler({}, site.io.users.updateCard, function ( ) {
-			var payload = site.user;
+		app.form.handler({}, app.io.users.updateCard, function ( ) {
+			var payload = app.user;
 			payload.message = "Payment Successfully Updated";
-			site.gotoStep('dashboard', payload );
-		}, site.form.errors );
+			app.gotoStep('dashboard', payload );
+		}, app.form.errors );
 
 		$cancel.on('click', function ( ) {
-			site.user.message = null;
-			site.gotoStep('dashboard', site.user);
+			app.user.message = null;
+			app.gotoStep('dashboard', app.user);
 		});
 	}
 })

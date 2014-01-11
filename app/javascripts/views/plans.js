@@ -6,14 +6,14 @@ define('plansReady', [ 'jquery' ], function ( $ ) {
 			var $selected = $('input[type="radio"]:checked'),
 				planId = $selected.data('id');
 			if ( planId ) {
-				site.user.plan_id = planId;
-				return site.gotoStep('creditcard', { planId : planId });
+				app.user.plan_id = planId;
+				return app.gotoStep('creditcard', { planId : planId });
 			}
 
 			if ( $selected.data('none') ) {
-				return site.gotoStep( 'dashboard', site.user );
+				return app.gotoStep( 'dashboard', app.user );
 			}
-			site.form.errors({
+			app.form.errors({
 				error : {
 					message : "Please select a plan."
 				}

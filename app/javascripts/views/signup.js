@@ -1,11 +1,11 @@
 define('signupReady', [  ], function ( ) {
 	return function ( ) {
-		site.form.handler({
+		app.form.handler({
 			buttonProccessing : 'Creating...'
-		}, site.io.users.create, function ( res ) {
-			site.$switch.remove();
-			site.user = res.user;
-			site.gotoStep( 'plans', site.plans );
-		}, site.form.errors );
+		}, app.io.users.create, function ( res ) {
+			app.$switch.remove();
+			app.user = res.user;
+			app.gotoStep( 'plans', app.plans );
+		}, app.form.errors );
 	}
 })

@@ -25,7 +25,7 @@ define('paymentReady', [ 'jquery', 'validate' ], function ( $, validate ) {
 
 
 
-		site.form.handler({}, function( data, callback ){
+		app.form.handler({}, function( data, callback ){
 			var amount = '' + data.amount,
 				decSplit = amount.split(/\./),
 				append = '',
@@ -41,25 +41,25 @@ define('paymentReady', [ 'jquery', 'validate' ], function ( $, validate ) {
 						message : invalid
 					}
 				};
-				site.form.errors( errors );
+				app.form.errors( errors );
 				return callback( errors );
 			}
 			data.amount = (amount).replace( pattern, '') + append;
 			
 
 
-			site.io.users.charge( data, callback );
+			app.io.users.charge( data, callback );
 			payloadAmount = data.amount;
 		}, function ( ) {
-			site.io.users.show({
-				id : site.user.id
+			app.io.users.show({
+				id : app.user.id
 			}, function ( err, res ) {
 				if ( err ) return console.warn( err );
-				site.user.message = "Thanks! You have been charged " 
+				app.user.message = "Thanks! You have been charged " 
 					+ parseAmount( payloadAmount );
-				site.gotoStep( 'dashboard', site.user );
+				app.gotoStep( 'dashboard', app.user );
 			});
-		}, site.form.errors );
+		}, app.form.errors );
 
 		$amount.on('keyup', function( e ) {
 			var value = $amount.val(),
@@ -74,8 +74,8 @@ define('paymentReady', [ 'jquery', 'validate' ], function ( $, validate ) {
 		});
 
 		$cancel.on('click', function ( ) {
-			site.user.message = null;
-			site.gotoStep('dashboard', site.user);
+			app.user.message = null;
+			app.gotoStep('dashboard', app.user);
 		});
 	}
 })

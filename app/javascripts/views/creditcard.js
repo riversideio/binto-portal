@@ -1,22 +1,22 @@
 define('creditcardReady', [ 'jquery' ], function ( $ ) {
 	return function ( ) {
-		site.form.handler({}, site.io.users.updateCard, function ( ) {
-			site.io.users.show({
-				id : site.user.id
+		app.form.handler({}, app.io.users.updateCard, function ( ) {
+			app.io.users.show({
+				id : app.user.id
 			}, function ( err, res ) {
 				if ( err ) return console.warn( err );
 				var user = res.user;
-				for( var i = 0; i < site.plans.plans.length; i += 1 ) {
-					var plan = site.plans.plans[ i ];
+				for( var i = 0; i < app.plans.plans.length; i += 1 ) {
+					var plan = app.plans.plans[ i ];
 					if ( plan.id === user.plan_id ) {
 						user.plan = plan;
 					}
 				}
-				site.user = user;
-				var payload = site.user;
+				app.user = user;
+				var payload = app.user;
 				payload.message = "Thanks for joining!";
-				site.gotoStep( 'dashboard', site.user );
+				app.gotoStep( 'dashboard', app.user );
 			});
-		}, site.form.errors )
+		}, app.form.errors )
 	}
 })

@@ -7,8 +7,8 @@ define('updateplanReady', [ 'jquery' ], function ( $ ) {
 			var $selected = $('input[type="radio"]:checked'),
 				planId = $selected.data('id');
 
-			if ( !site.user.stripe_customer_id && planId ) {
-				return site.gotoStep( 'creditcard', {
+			if ( !app.user.stripe_customer_id && planId ) {
+				return app.gotoStep( 'creditcard', {
 					planId : planId
 				});
 			}
@@ -16,20 +16,20 @@ define('updateplanReady', [ 'jquery' ], function ( $ ) {
 
 			if ( planId ) {
 				$submit.text('Updating...');
-				return site.io.users.updatePlan({
-					id : site.user.id,
+				return app.io.users.updatePlan({
+					id : app.user.id,
 					plan : planId
 				}, function ( err, res ) {
 					$submit.text('Ok');
 					if ( err ) return console.warn( err );
-					site.user.plan = res.message.plan;
-					site.user.plan.amount = site.user.plan.amount / 100;
-					var payload = site.user;
+					app.user.plan = res.message.plan;
+					app.user.plan.amount = app.user.plan.amount / 100;
+					var payload = app.user;
 					payload.message = "Your plan has been updated.";
-					site.gotoStep( 'dashboard', payload );
+					app.gotoStep( 'dashboard', payload );
 				})
 			}
-			site.form.errors({
+			app.form.errors({
 				error : {
 					message : "Please select a plan."
 				}
@@ -37,8 +37,8 @@ define('updateplanReady', [ 'jquery' ], function ( $ ) {
 		});
 
 		$cancel.on('click', function ( ) {
-			site.user.message = null;
-			site.gotoStep('dashboard', site.user);
+			app.user.message = null;
+			app.gotoStep('dashboard', app.user);
 		})
 	}
 })

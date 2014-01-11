@@ -8,11 +8,11 @@ define('dashboardReady', [ 'jquery' ], function ( $ ) {
 				payload = {};
 
 			if ( view === 'updateplan' ) {
-				payload = site.plans;
+				payload = app.plans;
 				// might want to grab current plan
 			}
 
-			site.gotoStep( view, payload );
+			app.gotoStep( view, payload );
 		});
 	}
 })
