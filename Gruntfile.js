@@ -18,7 +18,7 @@ module.exports = function( grunt ) {
           }
         },
         src: "views/signup/*.hbs",
-        dest: "public/javascripts/templatesSignup.js",
+        dest: "public/javascripts/templates.js",
         filter: function(filepath) {
           var filename = path.basename(filepath);
           // Exclude files that begin with '__' from being sent to the client,

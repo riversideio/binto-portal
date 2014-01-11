@@ -6,7 +6,6 @@ module.exports = {
 	"signup" : function ( req, res ) {
 		var payload = req.query || {};
 		payload.api = process.env.API || 'http://localhost:3000'
-		payload.layout = '__signup.hbs';
 		res.render("index", payload);
 	}
 };
