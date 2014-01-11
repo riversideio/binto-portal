@@ -98,6 +98,9 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
       }),
       updatePlan : _setCall('users/{{id}}/update_plan.json', {
         endpointVars : true
+      }),
+      charge : _setCall('users/{{id}}/charge.json', {
+        endpointVars : true
       })
     },
     plans : {
