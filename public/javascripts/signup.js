@@ -23,7 +23,7 @@ if ( "_signup" in window ) {
 		site.$switch = $('.login-switch');
 
 		function gotoStep( template, payload ) {
-			var _html = __tmp[ 'signup/' + template ]( payload );
+			var _html = __tmp[ template ]( payload );
 			site.$el.html( _html );
 			setTimeout( function ( ) {
 				site.currentStep = template;

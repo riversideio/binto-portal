@@ -2,7 +2,7 @@ define(['handlebars'], function(Handlebars) {
 
 this["__tmp"] = this["__tmp"] || {};
 
-this["__tmp"]["signup/cancelplan"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["cancelplan"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
@@ -11,7 +11,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<h2>Cancel Plan</h2>\n<p>Are you sure you want to cancel your plan?</p>\n<a href=\"#\" class=\"pure-button alert yes-plan\">Yes</a>\n<a href=\"#\" class=\"pure-button alert no-plan\">No</a>\n\n";
   });
 
-this["__tmp"]["signup/creditcard"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["creditcard"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -25,7 +25,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-this["__tmp"]["signup/dashboard"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["dashboard"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
@@ -70,7 +70,7 @@ function program5(depth0,data) {
   return buffer;
   });
 
-this["__tmp"]["signup/donate"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["donate"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
@@ -79,7 +79,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<h2>Donate to Riverside.io</h2>\n<p>Thanks you for your consideration.</p>\n<form class=\" pure-form pure-form-stacked\">\n	<label for=\"card_number\" data-fixture=\"$\">Amount</label>\n	<input type=\"text\" name=\"amount\" id=\"amount\" placeholder=\"0.00\" />\n	<label for=\"card_number\">Credit Card Number</label>\n	<input type=\"text\" name=\"card_number\" id=\"card_number\" />\n	<div class=\"pure-g-r\">\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"cvc\">CVC</label>\n				<input type=\"text\" name=\"card_cvc\" id=\"cvc\" value=\"\"/ >\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"card_exp_month\">Expiration Month</label>\n				<input type=\"text\" name=\"card_exp_month\" id=\"card_exp_month\" value=\"\"/ >\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"card_exp_year\">Expiration Year</label>\n				<input type=\"text\" name=\"card_exp_year\" id=\"card_exp_year\" value=\"\"/ >\n			</div>\n		</div>\n	</div>\n	<input type=\"submit\" class=\"pure-button alert\" value=\"Submit\"/>\n	<a class=\"donate-cancel pure-button alert\">Cancel</a>\n</form>\n";
   });
 
-this["__tmp"]["signup/forgotpassword"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["forgotpassword"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -93,7 +93,16 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-this["__tmp"]["signup/login"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["index"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"main row\">\n</div>\n";
+  });
+
+this["__tmp"]["login"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, self=this, functionType="function", escapeExpression=this.escapeExpression;
@@ -115,7 +124,7 @@ function program1(depth0,data) {
   return buffer;
   });
 
-this["__tmp"]["signup/payment"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["payment"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
@@ -124,7 +133,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<h2>One Time Payment</h2>\n<form class=\" pure-form pure-form-stacked\">\n	<label for=\"card_number\" data-fixture=\"$\">Amount</label>\n	<input type=\"text\" name=\"amount\" id=\"amount\" placeholder=\"0.00\" />\n	<label for=\"card_number\">Credit Card Number</label>\n	<input type=\"text\" name=\"card_number\" id=\"card_number\" />\n	<div class=\"pure-g-r\">\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"cvc\">CVC</label>\n				<input type=\"text\" name=\"card_cvc\" id=\"cvc\" value=\"\"/ >\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"card_exp_month\">Expiration Month</label>\n				<input type=\"text\" name=\"card_exp_month\" id=\"card_exp_month\" value=\"\"/ >\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"card_exp_year\">Expiration Year</label>\n				<input type=\"text\" name=\"card_exp_year\" id=\"card_exp_year\" value=\"\"/ >\n			</div>\n		</div>\n	</div>\n	<input type=\"submit\" class=\"pure-button alert\" value=\"Submit\"/>\n	<a class=\"payment-cancel pure-button alert\">Cancel</a>\n</form>\n";
   });
 
-this["__tmp"]["signup/plans"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["plans"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
@@ -163,7 +172,7 @@ function program1(depth0,data) {
   return buffer;
   });
 
-this["__tmp"]["signup/signup"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["signup"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
@@ -177,7 +186,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   });
 
-this["__tmp"]["signup/updatepayment"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["updatepayment"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
@@ -186,7 +195,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<h2>Update Billing Information</h2>\n<p>By submitting your information here will overwrite your old information if submission is successful.</p>\n<form class=\" pure-form pure-form-stacked\">\n	<label for=\"card_number\">Credit Card Number</label>\n	<input type=\"text\" name=\"card_number\" id=\"card_number\" autocomplete=\"off\" />\n	<div class=\"pure-g-r\">\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"cvc\">CVC</label>\n				<input type=\"text\" name=\"card_cvc\" id=\"cvc\" value=\"\"/ >\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"card_exp_month\">Expiration Month</label>\n				<input type=\"text\" name=\"card_exp_month\" id=\"card_exp_month\" value=\"\" maxlength=\"2\"/ >\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"card_exp_year\">Expiration Year</label>\n				<input type=\"text\" name=\"card_exp_year\" id=\"card_exp_year\" value=\"\" maxlength=\"2\"/ >\n			</div>\n		</div>\n	</div>\n	<input type=\"submit\" class=\"pure-button alert\" value=\"Submit\"/>\n	<a class=\"update-payment-cancel pure-button alert\">Cancel</a>\n</form>\n";
   });
 
-this["__tmp"]["signup/updateplan"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["updateplan"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
@@ -221,7 +230,7 @@ function program1(depth0,data) {
   return buffer;
   });
 
-this["__tmp"]["signup/updatethanks"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+this["__tmp"]["updatethanks"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   

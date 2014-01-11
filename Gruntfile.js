@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     handlebars: {
-      signup : {
+      templates : {
         options: {
           namespace: "__tmp",
           amd : true,
@@ -17,7 +17,7 @@ module.exports = function( grunt ) {
             return filename.replace('views/', '').replace('.hbs', '');
           }
         },
-        src: "views/signup/*.hbs",
+        src: "views/*.hbs",
         dest: "public/javascripts/templates.js",
         filter: function(filepath) {
           var filename = path.basename(filepath);
