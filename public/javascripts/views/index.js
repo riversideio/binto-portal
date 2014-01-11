@@ -10,7 +10,8 @@ requirejs.config({
 		'updatepaymentReady' : '/javascripts/views/updatepayment',
 		'updateplanReady' : '/javascripts/views/updateplan',
 		'cancelplanReady' : '/javascripts/views/cancelplan',
-		'donateReady' : '/javascripts/views/donate'
+		'donateReady' : '/javascripts/views/donate',
+		'paymentReady' : '/javascripts/views/payment'
 	}
 });
 
@@ -25,7 +26,8 @@ define('ready',
 	'updatepaymentReady',
 	'updateplanReady',
 	'cancelplanReady',
-	'donateReady'
+	'donateReady',
+	'paymentReady'
 ], 
 function ( 
 	login, 
@@ -37,7 +39,8 @@ function (
 	ccupdate, 
 	updateplan, 
 	cancelplan,
-	donate 
+	donate,
+	payment
 ) {
 	return {
 		login : login,
@@ -49,7 +52,8 @@ function (
 		updatepayment : ccupdate,
 		updateplan : updateplan,
 		cancelplan : cancelplan,
-		donate : donate
+		donate : donate,
+		payment : payment
 	}
 
 })

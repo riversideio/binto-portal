@@ -1,7 +1,7 @@
-define('donateReady', [ 'jquery', 'validate' ], function ( $, validate ) {
+define('paymentReady', [ 'jquery', 'validate' ], function ( $, validate ) {
 	return function ( ) {
 		var $amount = $('#amount'),
-			$cancel = $('.donate-cancel'),
+			$cancel = $('.payment-cancel'),
 			pattern = /\$|\.|[a-z]|-/gi,
 			bads = /\$|[a-z]|-/gi,
 			payloadAmount;
@@ -60,7 +60,7 @@ define('donateReady', [ 'jquery', 'validate' ], function ( $, validate ) {
 				site.gotoStep( 'dashboard', site.user );
 			});
 		}, site.form.errors );
-		
+
 		$amount.on('keyup', function( e ) {
 			var value = $amount.val(),
 				invalid = validate('amountFormatted', value );

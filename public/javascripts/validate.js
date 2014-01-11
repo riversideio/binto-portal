@@ -45,8 +45,6 @@ define( 'validate', ['moment'], function ( moment ) {
 			return;
 		},
 		'_amount' : function ( value ) {
-
-			console.log( value );
 			if( isNaN(+value) ) {
 				return "Amount must be a number";
 			}
