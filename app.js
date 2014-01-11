@@ -3,17 +3,13 @@
  * Module dependencies.
  */
 
-var 
-express = require('express'),
-cons = require('consolidate'),
-hbs = require('hbs'),
-_ = require("underscore"),
-router = require("./routes/__loader"),
-routes,
-http = require('http'),
-path = require('path'),
-app = express();
-app.locals.layout = "__layout";
+var express = require('express'),
+  hbs = require('hbs'),
+  router = require("./routes/__loader"),
+  routes,
+  http = require('http'),
+  path = require('path'),
+  app = express();
 
 // basic helpers for __layout
 require( "./assets/handlebarsAssets" )( hbs );

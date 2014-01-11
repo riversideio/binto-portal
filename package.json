@@ -1,6 +1,6 @@
 {
   "name": "magnolia-bloom",
-  "version": "0.0.5",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "node app"
@@ -9,7 +9,6 @@
     "express": "3.0.2",
     "handlebars": "~1.0.0",
     "connect-assets": "~2.4.2",
-    "consolidate": "~0.9.1",
     "underscore": "~1.4.4",
     "hbs": "~2.3.0",
     "stylus": "~0.34.1",
@@ -17,7 +16,7 @@
     "dotenv": "~0.2.3"
   },
   "engines": {
-    "node": "0.8.x"
+    "node": "0.10.x"
   },
   "devDependencies": {
     "grunt": "0.4.1",
