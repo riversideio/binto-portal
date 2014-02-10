@@ -33,7 +33,8 @@
 
             return $.ajax({
                 // abstract url to allow for better dev
-                url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
+                // url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
+                url : 'http://localhost:3000/api/v0/' + endpoint,
                 data : data,
                 type : options.method || "post",
                 success : function ( res ) {
@@ -125,6 +126,12 @@
                 all : _setCall('plans.json', {
                     method : 'get'
                 })
+            },
+            events : {
+                all : _setCall('events.json', {
+                    method : 'get'
+                }),
+                create : _setCall('events.json')
             }
 
         }

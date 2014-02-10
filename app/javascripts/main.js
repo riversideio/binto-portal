@@ -5,11 +5,12 @@ require.config({
 		'jquery' : '//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min',
 		'handlebars' : '/javascripts/libs/handlebars',
 		'moment' : '/javascripts/libs/moment',
+		'pikaday' : '/javascripts/libs/pikaday',
 		'__tmp' : '/javascripts/templates',
 		'form' : '/javascripts/form',
 		'io' : '/javascripts/sdk',
 		'validate' : '/javascripts/validate',
-		'ready' : '/javascripts/views/index'
+		'ready' : '/javascripts/views/index',
 	}
 });
 

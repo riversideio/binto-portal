@@ -11,6 +11,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<h2>Cancel Plan</h2>\n<p>Are you sure you want to cancel your plan?</p>\n<a href=\"#\" class=\"pure-button alert yes-plan\">Yes</a>\n<a href=\"#\" class=\"pure-button alert no-plan\">No</a>\n\n";
   });
 
+this["__tmp"]["createevent"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<h2>Create Event</h2>\n<form class=\" pure-form pure-form-stacked\">\n	<div class=\"pure-g-r\">\n		<div class=\"pure-u-1-3\">\n			<div class=\"createevent-date-pick\">\n				<label for=\"date\">Pick A Date</label>\n				<input type=\"text\" id=\"date\" name=\"date\">\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"start\" >Start Time</label>\n				<input type=\"text\" id=\"start\" name=\"start\">\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"end\" >End Time</label>\n				<input type=\"text\" id=\"end\" name=\"end\">\n			</div>\n		</div>\n	</div>\n	<label for=\"title\">Title</label>\n	<input type=\"text\" id=\"title\" name=\"title\">\n	<label for=\"description\">Description</label>\n	<textarea id=\"description\" name=\"description\"></textarea>\n	<input type=\"submit\" class=\"pure-button alert submit-event\" value=\"Ok\">\n	<a href=\"#\" class=\"pure-button alert cancel-event\">Cancel</a>\n</form>\n";
+  });
+
 this["__tmp"]["creditcard"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -66,7 +75,7 @@ function program5(depth0,data) {
   buffer += "\n";
   stack1 = helpers['if'].call(depth0, depth0.plan, {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n<p> What would you like to do?</p>\n<ul>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Donate</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"payment\">Make a Payment</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n	</li>\n</ul>\n\n";
+  buffer += "\n<p> What would you like to do?</p>\n<ul>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Donate</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"createevent\">Create A Event</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"payment\">Make a Payment</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n	</li>\n</ul>\n\n";
   return buffer;
   });
 

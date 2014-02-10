@@ -5,11 +5,7 @@ define('form', ['jquery', 'validate' ], function ( $, validate ) {
 		$inputs.each( function ( ) {
 			var key = this.name,
 				value = this.value;
-/*					bad = validate( key, value );
-			if ( bad ) {
-				errors.push( err)
-			}
-*/
+
 			payload[ key ] = value;
 		})
 
@@ -21,7 +17,7 @@ define('form', ['jquery', 'validate' ], function ( $, validate ) {
 	}
 
 	function handler ( options, method, next, error ) {
-		var $inputs = $('input:not([type="submit"])'),
+		var $inputs = $('input:not([type="submit"]), textarea'),
 			$submit = $('input[type="submit"]'),
 			submitState = $submit.val();
 

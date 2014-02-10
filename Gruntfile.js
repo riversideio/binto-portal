@@ -40,11 +40,18 @@ module.exports = function( grunt ) {
       }
     },
     watch: {
-      templates: {
-        files: 'views/**/*.hbs',
-        tasks: ['compile'],
+      styles : {
+        files: 'app/stylesheets/**/*.styl',
+        tasks: ['stylus'],
         options: {
-          interrupt: true
+          interrupt: false
+        }
+      },
+      templates: {
+        files: 'app/templates/**/*.hbs',
+        tasks: ['handlebars'],
+        options: {
+          interrupt: false
         }
       }
     },

@@ -1,5 +1,10 @@
 define( 'validate', ['moment'], function ( moment ) {
 
+	function validateMoment ( error, value ) {
+		var date = moment( value );
+		return date ? ( moment( value ).isValid() ? null : error ) : error;
+	}
+
 	var type = {
 		'email' : function ( value ) {
 			var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -76,6 +81,22 @@ define( 'validate', ['moment'], function ( moment ) {
 
 			return;
 
+		},
+		'date' : function ( value ) {
+			return validateMoment.bind( null, 'Invalid Date' )( value );
+		},
+		'start' : function ( value ) {
+			var date = moment().format('YYYY/MM/DD');
+			return validateMoment.bind( null, 'Invalid Start Time' )
+				( date + ' ' + value );
+		},
+		'end' : function ( value ) {
+			var date = moment().format('YYYY/MM/DD');
+			return validateMoment.bind( null, 'Invalid End Time' )
+				( date + ' ' + value );
+		},
+		'title' : function ( value ) {
+			return value ? null : 'Please enter a title' ;
 		}
 	}
 
