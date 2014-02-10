@@ -1,0 +1,49 @@
+.pika-single
+	padding: 0;
+	margin-top: -1px;
+	border: 1px solid rgba( darkGrey, .3 )!important
+	.pika-title, .pika-label
+		background: red;
+
+	.pika-label
+		color white
+
+	.pika-title
+		&:before 
+			content ""
+			display block
+			height 0
+			width 0
+			border-width 11px 
+			border-color transparent transparent rgba( darkGrey, .3 ) rgba( darkGrey, .3 ) 
+			border-style solid
+			position absolute
+			top -22px
+			left -1px
+
+		&:after 
+			content ""
+			display block
+			height 0
+			width 0
+			border-width 10px 
+			border-color transparent transparent red red 
+			border-style solid
+			position absolute
+			top -20px
+			left 0px
+
+	.pika-button
+		border-radius 0
+		background rgba( lightGrey, .3 )
+
+	.pika-button:hover
+		background rgba( green, .3 )!important
+		border-radius 0!important
+		color darkGrey!important
+
+	.is-selected .pika-button
+		background blue
+		box-shadow none
+		
+	
