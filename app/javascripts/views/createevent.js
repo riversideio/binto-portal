@@ -63,6 +63,13 @@ define('eventsReady',
 							_start.isBefore( _event.end.dateTime ) &&
 							_end.isAfter( _event.end.dateTime )
 						) return true;
+
+						if ( 
+							// if event is same times
+							_start.isSame( _event.start.dateTime ) &&
+							_end.isSame( _event.end.dateTime )
+						) return true;
+
 						return false;
 					});
 
