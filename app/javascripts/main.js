@@ -18,10 +18,14 @@ if ( "_signup" in window ) {
 
 	require(['jquery', 'io', 'form', '__tmp'], function ( $, io, form, __tmp ) {
 
+		var done;
 		app.$el = $('.main');
 		app.io = io;
 		app.form = form;
 		app.$switch = $('.login-switch');
+		app.logout = function ( ) {
+			sessionStorage.clear();
+		};
 
 		function gotoStep( template, payload ) {
 			var _html = __tmp[ template ]( payload );
@@ -47,7 +51,24 @@ if ( "_signup" in window ) {
 		}
 
 		require(['ready'], function( ready ) {
-			app.ready = ready;		
+			var user;
+			app.ready = ready;
+			if ( 'sessionStorage' in window ) {
+				try { 
+					user = JSON.parse( sessionStorage.getItem( 'user' ) );
+				} catch ( e ) {
+					sessionStorage.removeItem( 'user' );
+					user = null
+				}
+				if ( user ) {
+					app.$switch.remove();
+					done = function ( ) {
+						gotoStep('dashboard', user );
+					};
+					if ( app.plans ) done();
+					return app.user = user;
+				}
+			}		
 			gotoStep('signup', _signup || {});
 		})
 
@@ -59,6 +80,7 @@ if ( "_signup" in window ) {
 				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
 			}
 			app.plans = res;
+			if ( typeof done === 'function' ) done();
 		});
 
 		app.$switch.on('click', function ( e ) {
