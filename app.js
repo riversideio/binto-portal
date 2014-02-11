@@ -36,6 +36,7 @@ app.configure('development', function(){
 
 router( function( routes ){
   app.get("/", routes.index.main);
+  // right now only two views are fully supported
   app.get("/:view", routes.index.main);
   /*
   this is to startup heroku app for visitor 

@@ -3,7 +3,6 @@ require('dotenv').load();
 function merge ( ) {
 	var obj = {},
 		objs = [].slice.call( arguments, 0 );
-	console.log( objs );
 	objs.forEach( function ( _obj ) {
 		for( var key in _obj ) {
 			obj[ key ] = _obj[ key ];
