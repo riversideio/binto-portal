@@ -24,6 +24,7 @@ define('loginReady', [  ], function ( ) {
 					sessionStorage.setItem('user', 
 						JSON.stringify( app.user ));
 				}
+				if ( _options.view ) return app.gotoView( _options.view );
 				app.gotoStep( 'dashboard', user );
 			});
 		}, function ( err ) {

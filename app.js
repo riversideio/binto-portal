@@ -36,6 +36,7 @@ app.configure('development', function(){
 
 router( function( routes ){
   app.get("/", routes.index.main);
+  app.get("/:view", routes.index.main);
   /*
   this is to startup heroku app for visitor 
   of our site so when the user clicks signup

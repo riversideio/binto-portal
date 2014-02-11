@@ -1,4 +1,7 @@
 <h2>Login</h2>
+{{#if message}}
+	<p class="message">{{message}}</p>
+{{/if}}
 <form class=" pure-form pure-form-stacked">
 	{{#if reset}}
 		<p class="message">We have sent you an email to reset your password. Once you have reset your password come back to this page and login with your new password</p>
