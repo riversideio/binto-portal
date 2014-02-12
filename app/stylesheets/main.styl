@@ -43,6 +43,20 @@
 	color white
 	padding 10px
 	font-size 15px
+	position relative
+	overflow visible
+	&::after
+		content ""
+		display block
+		height 0
+		width 0
+		border-width 10px 
+		border-color transparent transparent blue blue 
+		border-style solid
+		position absolute
+		top -20px
+		left 0px
+
 
 .error_message 
 	background red

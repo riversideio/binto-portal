@@ -26,7 +26,8 @@ define('eventsReady',
 				minDate : today.toDate(),
 				maxDate : moment().add('y', 1).toDate(),
 				format : 'MM/DD/YYYY',
-				onSelect : handleDateSelect
+				onSelect : handleDateSelect,
+				bound : true
 			});
 
 			$date.on('click', function ( ) {
