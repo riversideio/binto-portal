@@ -33,7 +33,8 @@
 
             return $.ajax({
                 // abstract url to allow for better dev
-                url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
+                // url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
+                url : 'http://127.0.0.1:3000/api/v0/' + endpoint,
                 data : data,
                 type : options.method || "post",
                 success : function ( res ) {
