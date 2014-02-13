@@ -21,7 +21,8 @@ if ( "_signup" in window ) {
 		app.io = io;
 		app.form = form;
 		app.$switch = $('.login-switch');
-		app.ready = ready;		
+		app.ready = ready;
+		io.setUrl( _signup.api );
 
 		function gotoStep( template, payload ) {
 			var _html = __tmp[ template ]( payload );
