@@ -1,5 +1,5 @@
 module.exports = {
-	'signup username error': function ( test ) {
+	'signup exsisting username error': function ( test ) {
 		test
 		    .open('http://127.0.0.1:3030')
 		    .waitForElement('#password')
@@ -11,7 +11,7 @@ module.exports = {
 		   		.is('username jacoblowe2.0@gmail.com already taken')
 		   	.done();	
 	},
-	'signup flow works': function (test) {
+	'signup flow works': function ( test ) {
 
 		// good for now but there also should
 		// be a cleanup script
@@ -35,5 +35,19 @@ module.exports = {
 		   	.waitForElement('.message')
 		   	.assert.text('.message').is('Thanks for joining!')
 		    .done();
-		}
+	},
+	'login is working': function ( test ) {
+
+		test
+			.open('http://127.0.0.1:3030')
+			.waitForElement('#password')
+			.click('.login-switch')
+			.type('#email', 'jacoblowe2.0@gmail.com')
+		   	.type('#password', '123456')
+		   	.click('[type="submit"]')
+		   	.waitForElement('.main ul')
+		   	.assert.text('.main h2', 'Hello.')
+		   	.done();
+
+	}
 };
