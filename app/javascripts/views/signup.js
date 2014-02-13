@@ -5,7 +5,13 @@ define('signupReady', [  ], function ( ) {
 		}, app.io.users.create, function ( res ) {
 			app.$switch.remove();
 			app.user = res.user;
-			app.gotoStep( 'plans', app.plans );
+			if ( app.plans ) {
+				app.gotoStep( 'plans', app.plans );
+			} else {
+				app.plansReady = function ( ) {
+					app.gotoStep( 'plans', app.plans );
+				}
+			}
 		}, app.form.errors );
 	}
 })

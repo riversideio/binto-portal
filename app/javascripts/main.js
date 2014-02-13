@@ -15,12 +15,13 @@ require.config({
 
 if ( "_signup" in window ) {
 
-	require(['jquery', 'io', 'form', '__tmp'], function ( $, io, form, __tmp ) {
+	require(['jquery', 'io', 'form', '__tmp', 'ready'], function ( $, io, form, __tmp, ready ) {
 
 		app.$el = $('.main');
 		app.io = io;
 		app.form = form;
 		app.$switch = $('.login-switch');
+		app.ready = ready;		
 
 		function gotoStep( template, payload ) {
 			var _html = __tmp[ template ]( payload );
@@ -45,10 +46,7 @@ if ( "_signup" in window ) {
 			form.handler.apply( form, arguments );
 		}
 
-		require(['ready'], function( ready ) {
-			app.ready = ready;		
-			gotoStep('signup', _signup || {});
-		})
+		gotoStep('signup', _signup || {});
 
 		app.gotoStep = gotoStep;
 		// preload plans
@@ -58,6 +56,9 @@ if ( "_signup" in window ) {
 				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
 			}
 			app.plans = res;
+			if ( typeof app.plansReady === 'function' ) {
+				app.plansReady();
+			}
 		});
 
 		app.$switch.on('click', function ( e ) {
