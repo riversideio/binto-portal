@@ -33,40 +33,40 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n	<p class=\"message\">";
+  buffer += "\n		<p class=\"message\">";
   if (stack1 = helpers.message) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.message; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</p>\n";
+    + "</p>\n	";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n	<h3>Current Plan</h3>\n	<p>\""
+  buffer += "\n		<h3>Current Plan</h3>\n		<p>\""
     + escapeExpression(((stack1 = ((stack1 = depth0.plan),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" at $"
     + escapeExpression(((stack1 = ((stack1 = depth0.plan),stack1 == null || stack1 === false ? stack1 : stack1.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " a "
     + escapeExpression(((stack1 = ((stack1 = depth0.plan),stack1 == null || stack1 === false ? stack1 : stack1.interval)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</p>\n";
+    + "</p>\n	";
   return buffer;
   }
 
 function program5(depth0,data) {
   
   
-  return "\n	<h3>You have no plan</h3>\n	<p><a href=\"#\" data-view=\"updateplan\">Choose a Plan</a></p>\n";
+  return "\n		<h3>You have no plan</h3>\n		<p><a href=\"#\" data-view=\"updateplan\">Choose a Plan</a></p>\n	";
   }
 
-  buffer += "<h2>Hello.</h2>\n";
+  buffer += "<div id=\"io-dashboard\">\n	<h2>Hello.</h2>\n	";
   stack1 = helpers['if'].call(depth0, depth0.message, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n";
+  buffer += "\n	";
   stack1 = helpers['if'].call(depth0, depth0.plan, {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n<p> What would you like to do?</p>\n<ul>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Donate</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"payment\">Make a Payment</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n	</li>\n</ul>\n\n";
+  buffer += "\n	<p> What would you like to do?</p>\n	<ul>\n		<li> \n			<a href=\"#\" data-view=\"donate\">Donate</a>\n		</li>\n		<li> \n			<a href=\"#\" data-view=\"payment\">Make a Payment</a>\n		</li>\n		<li> \n			<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n		</li>\n		<li> \n			<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n		</li>\n		<li> \n			<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n		</li>\n	</ul>\n</div>";
   return buffer;
   });
 

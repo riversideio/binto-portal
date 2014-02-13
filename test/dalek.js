@@ -16,7 +16,6 @@ module.exports = {
 		// good for now but there also should
 		// be a cleanup script
 		// and also test for errors in between
-
 		test
 		    .open('http://127.0.0.1:3030')
 		    .waitForElement('#password')
@@ -36,18 +35,73 @@ module.exports = {
 		   	.assert.text('.message').is('Thanks for joining!')
 		    .done();
 	},
-	'login is working': function ( test ) {
+	'dashboard is working': function ( test ) {
 
 		test
 			.open('http://127.0.0.1:3030')
 			.waitForElement('#password')
+			// login
 			.click('.login-switch')
 			.type('#email', 'jacoblowe2.0@gmail.com')
 		   	.type('#password', '123456')
 		   	.click('[type="submit"]')
-		   	.waitForElement('.main ul')
-		   	.assert.text('.main h2', 'Hello.')
+		   	.waitForElement('#io-dashboard')
+		   	.assert.numberOfElements('.main ul > li', 5)
+		   	.assert.text('.main h2').is('Hello.')
+		   	// donate
+		   	.click('[data-view="donate"]')
+		   	.waitForElement('#amount')
+		   	.type('#amount', '1.00')
+		   	.type('#card_number', '4242424242424242')
+		   	.type('#cvc', '123')
+		   	.type('#card_exp_month', '02')
+		   	.type('#card_exp_year', '20')
+		   	.click('[type="submit"]')
+		   	.waitForElement('#io-dashboard')
+		   	.assert.numberOfElements('.main ul > li', 5)
+		   	.assert.text('.message')
+		   		.is('Thanks! You have been charged $1.00')
+		   	// make a payment
+		   	.click('[data-view="payment"]')
+		   	.waitForElement('#amount')
+		   	.type('#amount', '1.00')
+		   	.type('#card_number', '4242424242424242')
+		   	.type('#cvc', '123')
+		   	.type('#card_exp_month', '02')
+		   	.type('#card_exp_year', '20')
+		   	.click('[type="submit"]')
+		   	.waitForElement('#io-dashboard')
+		   	.assert.numberOfElements('.main ul > li', 5)
+		   	.assert.text('.message')
+		   		.is('Thanks! You have been charged $1.00')
+		   	// update plan
+		   	.click('[data-view="updateplan"]')
+		   	.waitForElement('.pure-button.alert.submit-plan')
+		   	.click('.plan-list > li >input[type="radio"]')
+		   	.click('.submit-plan')
+		   	.waitForElement('#io-dashboard')
+		   	.assert.text('.message')
+		   		.is('Your plan has been updated.')
+		   	// update card
+		   	.click('[data-view="updatepayment"]')
+		   	.waitForElement('#card_number')
+		   	.type('#card_number', '4242424242424242')
+		   	.type('#cvc', '123')
+		   	.type('#card_exp_month', '02')
+		   	.type('#card_exp_year', '20')
+		   	.click('[type="submit"]')
+		   	.waitForElement('#io-dashboard')
+		   	.assert.numberOfElements('.main ul > li', 5)
+		   	.assert.text('.message')
+		   		.is('Payment Successfully Updated')
+		   	//cancel plan
+		   	.click('[data-view="cancelplan"]')
+		   	.waitForElement('.yes-plan')
+		   	.click('.yes-plan')
+		   	.waitForElement('#io-dashboard', 10000)
+		   	.assert.numberOfElements('.main ul > li', 5)
+		   	.assert.text('.message')
+		   		.is('Sorry to see you go')
 		   	.done();
-
 	}
 };

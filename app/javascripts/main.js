@@ -58,6 +58,9 @@ if ( "_signup" in window ) {
 				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
 			}
 			app.plans = res;
+			if ( typeof app.plansReady === 'function' ) {
+				app.plansReady();
+			}
 		});
 
 		app.$switch.on('click', function ( e ) {
