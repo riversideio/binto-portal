@@ -16,9 +16,11 @@ require.config({
 
 if ( "_options" in window ) {
 
-	require(['jquery', 'io', 'form', '__tmp'], function ( $, io, form, __tmp ) {
+	require(['jquery', 'io', 'form', '__tmp', 'ready'], function ( $, io, form, __tmp, ready ) {
 
 		var done,	
+			user,
+			plans,
 			supportSessions = 'sessionStorage' in window,
 			supportPushState = 'pushState' in history &&
 				'replaceState' in history,
@@ -28,6 +30,9 @@ if ( "_options" in window ) {
 		app.io = io;
 		app.form = form;
 		app.$switch = $('.login-switch');
+		io.setUrl( _options.api );
+		app.ready = ready;
+
 		app.logout = function ( ) {
 			app.user = null;
 			sessionStorage.clear();
@@ -38,6 +43,8 @@ if ( "_options" in window ) {
 			back = true;
 			app.gotoView( view );
 		};
+
+
 
 		function gotoStep( template, payload ) {
 			var _html = __tmp[ template ]( payload );
@@ -80,49 +87,45 @@ if ( "_options" in window ) {
 			form.handler.apply( form, arguments );
 		}
 
-		require(['ready'], function( ready ) {
-			var user,
-				plans;
-			app.ready = ready;
-			if ( supportSessions ) {
-				try { 
-					user = JSON.parse( sessionStorage.getItem( 'user' ) );
-					plans = JSON.parse( sessionStorage.getItem( 'plans' ) ) 
-				} catch ( e ) {
-					sessionStorage.removeItem( 'user' );
-					sessionStorage.removeItem( 'plans' );
-					user = null;
-					plans = null;
-				}
-				if ( user && plans ) {
-					app.$switch.remove();
-					done = function ( ) {
-						if ( _options.view ) return gotoView( _options.view );
-						gotoStep('dashboard', user );
-					};
-					app.user = user;
-					app.plans = plans;
-					if ( app.plans ) done();
-					return;
-				}
-			}		
-			if ( _options.view ) {
-				switch ( _options.view ) { 
-					case 'createevent' :
-						_options.message = "Once you signup or login you" +
-							" will be taken to the create event page.";
-						break;
-					case 'donate' :
-						_options.message = "Please create an account to donate" +
-							" and you are a beautiful person.";
-						break;
-					default : 
-						// just remove for now to avoid issues
-						_options.view = null;
-				}
+
+		if ( supportSessions ) {
+			try { 
+				user = JSON.parse( sessionStorage.getItem( 'user' ) );
+				plans = JSON.parse( sessionStorage.getItem( 'plans' ) ) 
+			} catch ( e ) {
+				sessionStorage.removeItem( 'user' );
+				sessionStorage.removeItem( 'plans' );
+				user = null;
+				plans = null;
 			}
-			gotoStep('signup', _options || {});
-		})
+			if ( user && plans ) {
+				app.$switch.remove();
+				done = function ( ) {
+					if ( _options.view ) return gotoView( _options.view );
+					gotoStep('dashboard', user );
+				};
+				app.user = user;
+				app.plans = plans;
+				if ( app.plans ) done();
+			}
+		}		
+		if ( _options.view ) {
+			switch ( _options.view ) { 
+				case 'createevent' :
+					_options.message = "Once you signup or login you" +
+						" will be taken to the create event page.";
+					break;
+				case 'donate' :
+					_options.message = "Please create an account to donate" +
+						" and you are a beautiful person.";
+					break;
+				default : 
+					// just remove for now to avoid issues
+					_options.view = null;
+			}
+		}
+		gotoStep('signup', _options || {});
+
 
 		app.gotoStep = gotoStep;
 		app.gotoView = gotoView;
@@ -137,6 +140,9 @@ if ( "_options" in window ) {
 				sessionStorage.setItem('plans', JSON.stringify(app.plans) );
 			}
 			if ( typeof done === 'function' ) done();
+			if ( typeof app.plansReady === 'function' ) {
+				app.plansReady();
+			}
 		});
 
 		app.$switch.on('click', function ( e ) {

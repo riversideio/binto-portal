@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<h2>Cancel Plan</h2>\n<p>Are you sure you want to cancel your plan?</p>\n<a href=\"#\" class=\"pure-button alert yes-plan\">Yes</a>\n<a href=\"#\" class=\"pure-button alert no-plan\">No</a>\n\n";
+  return "<h2>Cancel Plan</h2>\n<p>Are you sure you want to cancel your plan?</p>\n<a class=\"pure-button alert yes-plan\">Yes</a>\n<a class=\"pure-button alert no-plan\">No</a>\n\n";
   });
 
 this["__tmp"]["createevent"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -17,7 +17,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<h2>Create Event</h2>\n<form class=\" pure-form pure-form-stacked\">\n	<div class=\"pure-g-r\">\n		<div class=\"pure-u-1-3\">\n			<div class=\"createevent-date-pick\">\n				<label for=\"date\">Pick A Date</label>\n				<input type=\"text\" id=\"date\" name=\"date\">\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"start\" >Start Time</label>\n				<input type=\"text\" id=\"start\" name=\"start\">\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"end\" >End Time</label>\n				<input type=\"text\" id=\"end\" name=\"end\">\n			</div>\n		</div>\n	</div>\n	<label for=\"title\">Title</label>\n	<input type=\"text\" id=\"title\" name=\"title\">\n	<label for=\"description\">Description</label>\n	<textarea id=\"description\" name=\"description\"></textarea>\n	<input type=\"submit\" class=\"pure-button alert submit-event\" value=\"Ok\">\n	<a href=\"#\" class=\"pure-button alert cancel-event\">Cancel</a>\n</form>\n";
+  return "<h2>Create Event</h2>\n<form class=\" pure-form pure-form-stacked\">\n	<div class=\"pure-g-r\">\n		<div class=\"pure-u-1-3\">\n			<div class=\"createevent-date-pick\">\n				<label for=\"date\">Pick A Date</label>\n				<input type=\"text\" id=\"date\" name=\"date\">\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"start\" >Start Time</label>\n				<input type=\"text\" id=\"start\" name=\"start\">\n			</div>\n		</div>\n		<div class=\"pure-u-1-3\">\n			<div>\n				<label for=\"end\" >End Time</label>\n				<input type=\"text\" id=\"end\" name=\"end\">\n			</div>\n		</div>\n	</div>\n	<label for=\"title\">Title</label>\n	<input type=\"text\" id=\"title\" name=\"title\">\n	<label for=\"description\">Description</label>\n	<textarea id=\"description\" name=\"description\"></textarea>\n	<input type=\"submit\" class=\"pure-button alert submit-event\" value=\"Ok\">\n	<a class=\"pure-button alert cancel-event\">Cancel</a>\n</form>\n";
   });
 
 this["__tmp"]["creditcard"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
@@ -42,40 +42,40 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n	<p class=\"message\">";
+  buffer += "\n		<p class=\"message\">";
   if (stack1 = helpers.message) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.message; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</p>\n";
+    + "</p>\n	";
   return buffer;
   }
 
 function program3(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n	<h3>Current Plan</h3>\n	<p>\""
+  buffer += "\n		<h3>Current Plan</h3>\n		<p>\""
     + escapeExpression(((stack1 = ((stack1 = depth0.plan),stack1 == null || stack1 === false ? stack1 : stack1.name)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\" at $"
     + escapeExpression(((stack1 = ((stack1 = depth0.plan),stack1 == null || stack1 === false ? stack1 : stack1.amount)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + " a "
     + escapeExpression(((stack1 = ((stack1 = depth0.plan),stack1 == null || stack1 === false ? stack1 : stack1.interval)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
-    + "</p>\n";
+    + "</p>\n	";
   return buffer;
   }
 
 function program5(depth0,data) {
   
   
-  return "\n	<h3>You have no plan</h3>\n	<p><a href=\"#\" data-view=\"updateplan\">Choose a Plan</a></p>\n";
+  return "\n		<h3>You have no plan</h3>\n		<p><a data-view=\"updateplan\">Choose a Plan</a></p>\n	";
   }
 
-  buffer += "<h2>Hello.</h2>\n";
+  buffer += "<div id=\"io-dashboard\">\n	<h2>Hello.</h2>\n	";
   stack1 = helpers['if'].call(depth0, depth0.message, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n";
+  buffer += "\n	";
   stack1 = helpers['if'].call(depth0, depth0.plan, {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n<p> What would you like to do?</p>\n<ul>\n	<li> \n		<a href=\"#\" data-view=\"donate\">Donate</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"createevent\">Create A Event</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"payment\">Make a Payment</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updateplan\">Update Plan</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"updatepayment\">Change Card</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"cancelplan\">Cancel Membership</a>\n	</li>\n	<li> \n		<a href=\"#\" data-view=\"login\" onclick=\"app.logout()\">Logout</a>\n	</li>\n</ul>\n\n";
+  buffer += "\n	<p> What would you like to do?</p>\n	<ul>\n		<li> \n			<a data-view=\"donate\">Donate</a>\n		</li>\n		<li> \n			<a data-view=\"createevent\">Create A Event</a>\n		</li>\n		<li> \n			<a data-view=\"payment\">Make a Payment</a>\n		</li>\n		<li> \n			<a data-view=\"updateplan\">Update Plan</a>\n		</li>\n		<li> \n			<a data-view=\"updatepayment\">Change Card</a>\n		</li>\n		<li> \n			<a data-view=\"cancelplan\">Cancel Membership</a>\n		</li>\n		<li> \n			<a data-view=\"login\" onclick=\"app.logout()\">Logout</a>\n		</li>\n	</ul>\n\n</div>\n\n";
   return buffer;
   });
 
@@ -191,7 +191,7 @@ function program1(depth0,data) {
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" data-none=\"true\">\n		<h3>No Thanks</h3>\n		<p>You can always signup for a plan later on.</p>\n	</li>\n</ul>\n<a href=\"#\" class=\"pure-button alert submit-plan\">Next</a>\n\n";
+    + "\" data-none=\"true\">\n		<h3>No Thanks</h3>\n		<p>You can always signup for a plan later on.</p>\n	</li>\n</ul>\n<a class=\"pure-button alert submit-plan\">Next</a>\n\n";
   return buffer;
   });
 
@@ -262,7 +262,7 @@ function program1(depth0,data) {
   buffer += "<h2>Update Plan</h2>\n<form></form>\n<ul class=\"plan-list\">\n	";
   stack1 = helpers.each.call(depth0, depth0.plans, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n</ul>\n<a href=\"#\" class=\"pure-button alert submit-plan\">Ok</a>\n<a href=\"#\" class=\"pure-button alert cancel-plan\">Cancel</a>\n";
+  buffer += "\n</ul>\n<a class=\"pure-button alert submit-plan\">Ok</a>\n<a class=\"pure-button alert cancel-plan\">Cancel</a>\n";
   return buffer;
   });
 

@@ -6,7 +6,8 @@
             processing,
             delimiterStart = '{{',
             delimiterEnd = '}}',
-            pattern = new RegExp( delimiterStart + '(.+?)' + delimiterEnd, 'g');
+            pattern = new RegExp( delimiterStart + '(.+?)' + delimiterEnd, 'g'),
+            apiUrl;
 
         function templating ( str, vars ) {
             function getVars ( item ) {
@@ -31,10 +32,14 @@
                 data.session_token = user.session_token;
             }
 
+            if ( !apiUrl ){
+                return console.warn('Please specifiy a url for the api to use.' + 
+                    ' USE : io.setUrl(<api_url>)');
+            }
+
             return $.ajax({
                 // abstract url to allow for better dev
-                // url : 'https://victoria-club.herokuapp.com/api/v0/' + endpoint,
-                url : 'http://localhost:3000/api/v0/' + endpoint,
+                url : apiUrl + endpoint,
                 data : data,
                 type : options.method || "post",
                 success : function ( res ) {
@@ -94,9 +99,9 @@
             users : {
                 login : _setCall('sessions.json'),
                 create : _setCall('users.json'),
-            all : _setCall('users.json', {
-              method : 'get'
-            }),
+                all : _setCall('users.json', {
+                  method : 'get'
+                }),
                 read : _setCall('users.json', { 
                     method : 'get' 
                 }),
@@ -127,11 +132,20 @@
                     method : 'get'
                 })
             },
+            checkins : {
+                all : _setCall('checkins.json', {
+                    method : 'get'
+                }),
+                create : _setCall('checkins.json')
+            },
             events : {
                 all : _setCall('events.json', {
                     method : 'get'
                 }),
                 create : _setCall('events.json')
+            },
+            setUrl : function ( url ) {
+                apiUrl = url;
             }
 
         }

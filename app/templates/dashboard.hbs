@@ -1,36 +1,39 @@
-<h2>Hello.</h2>
-{{#if message}}
-	<p class="message">{{message}}</p>
-{{/if}}
-{{#if plan}}
-	<h3>Current Plan</h3>
-	<p>"{{plan.name}}" at ${{plan.amount}} a {{plan.interval}}</p>
-{{else}}
-	<h3>You have no plan</h3>
-	<p><a href="#" data-view="updateplan">Choose a Plan</a></p>
-{{/if}}
-<p> What would you like to do?</p>
-<ul>
-	<li> 
-		<a href="#" data-view="donate">Donate</a>
-	</li>
-	<li> 
-		<a href="#" data-view="createevent">Create A Event</a>
-	</li>
-	<li> 
-		<a href="#" data-view="payment">Make a Payment</a>
-	</li>
-	<li> 
-		<a href="#" data-view="updateplan">Update Plan</a>
-	</li>
-	<li> 
-		<a href="#" data-view="updatepayment">Change Card</a>
-	</li>
-	<li> 
-		<a href="#" data-view="cancelplan">Cancel Membership</a>
-	</li>
-	<li> 
-		<a href="#" data-view="login" onclick="app.logout()">Logout</a>
-	</li>
-</ul>
+<div id="io-dashboard">
+	<h2>Hello.</h2>
+	{{#if message}}
+		<p class="message">{{message}}</p>
+	{{/if}}
+	{{#if plan}}
+		<h3>Current Plan</h3>
+		<p>"{{plan.name}}" at ${{plan.amount}} a {{plan.interval}}</p>
+	{{else}}
+		<h3>You have no plan</h3>
+		<p><a data-view="updateplan">Choose a Plan</a></p>
+	{{/if}}
+	<p> What would you like to do?</p>
+	<ul>
+		<li> 
+			<a data-view="donate">Donate</a>
+		</li>
+		<li> 
+			<a data-view="createevent">Create A Event</a>
+		</li>
+		<li> 
+			<a data-view="payment">Make a Payment</a>
+		</li>
+		<li> 
+			<a data-view="updateplan">Update Plan</a>
+		</li>
+		<li> 
+			<a data-view="updatepayment">Change Card</a>
+		</li>
+		<li> 
+			<a data-view="cancelplan">Cancel Membership</a>
+		</li>
+		<li> 
+			<a data-view="login" onclick="app.logout()">Logout</a>
+		</li>
+	</ul>
+
+</div>
 
