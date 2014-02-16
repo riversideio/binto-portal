@@ -146,6 +146,9 @@
             },
             setUrl : function ( url ) {
                 apiUrl = url;
+            },
+            setUser : function ( _user ) {
+                user = _user;
             }
 
         }

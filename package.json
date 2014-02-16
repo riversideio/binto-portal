@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app",
-    "test": "dalek test/*.js"
+    "test": "dalek test/main.js"
   },
   "dependencies": {
     "express": "3.0.2",

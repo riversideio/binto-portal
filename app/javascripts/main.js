@@ -44,8 +44,6 @@ if ( "_options" in window ) {
 			app.gotoView( view );
 		};
 
-
-
 		function gotoStep( template, payload ) {
 			var _html = __tmp[ template ]( payload );
 			app.$el.html( _html );
@@ -86,7 +84,22 @@ if ( "_options" in window ) {
 		function formHandler( ) {
 			form.handler.apply( form, arguments );
 		}
-
+		// checks for view creates a message if view is present
+		if ( _options.view ) {
+			switch ( _options.view ) { 
+				case 'createevent' :
+					_options.message = "Once you signup or login you" +
+						" will be taken to the create event page.";
+					break;
+				case 'donate' :
+					_options.message = "Please create an account to donate" +
+						" and you are a beautiful person.";
+					break;
+				default : 
+					// just remove for now to avoid issues
+					_options.view = null;
+			}
+		}
 
 		if ( supportSessions ) {
 			try { 
@@ -106,26 +119,12 @@ if ( "_options" in window ) {
 				};
 				app.user = user;
 				app.plans = plans;
+				io.setUser( user );
 				if ( app.plans ) done();
+			} else {
+				gotoStep('signup', _options || {});
 			}
 		}		
-		if ( _options.view ) {
-			switch ( _options.view ) { 
-				case 'createevent' :
-					_options.message = "Once you signup or login you" +
-						" will be taken to the create event page.";
-					break;
-				case 'donate' :
-					_options.message = "Please create an account to donate" +
-						" and you are a beautiful person.";
-					break;
-				default : 
-					// just remove for now to avoid issues
-					_options.view = null;
-			}
-		}
-		gotoStep('signup', _options || {});
-
 
 		app.gotoStep = gotoStep;
 		app.gotoView = gotoView;
