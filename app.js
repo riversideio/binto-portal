@@ -36,14 +36,12 @@ app.configure('development', function(){
 
 router( function( routes ){
   app.get("/", routes.index.main);
-  // right now only two views are fully supported
-  app.get("/:view", routes.index.main);
   /*
   this is to startup heroku app for visitor 
   of our site so when the user clicks signup
   the app is started up
   */
-  app.get("/startup.json", 
+  app.get("/a/startup.json", 
     function ( req, res, next ) {
       res.header('Access-Control-Allow-Credentials', true);
       res.header('Access-Control-Allow-Origin', req.headers.origin);
@@ -57,6 +55,8 @@ router( function( routes ){
       });
     }
   );
+  // right now only two views are fully supported
+  app.get("/:view", routes.index.main);
 });
 
 http.createServer(app).listen(app.get('port'), function(){
