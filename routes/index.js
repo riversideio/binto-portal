@@ -13,7 +13,7 @@ function merge ( ) {
 
 module.exports = {
 	"main" : function ( req, res ) {
-		var payload = req.query || {};
+		var payload = merge( req.query, req.params );
 		payload.api = process.env.API || 'http://localhost:3000/api/v0/'
 		res.render("index", payload);
 	}
