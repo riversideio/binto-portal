@@ -4,16 +4,27 @@ Coworking Member Portal. This is a tool to allow member access their information
 
 #### Victoria Club
 
-This app uses [riversideio/victoriaclub](https://github.com/riversideio/victoria-club) as an api to get member data
+This app uses [riversideio/victoriaclub](https://github.com/riversideio/victoria-club) as an api to get member data.
 
 #### Settup
 
-This app runs off of nodejs &  `grunt` CLI 
+You will need to create a `.env` file in the root of the directory. This will hold all of you enviroment variables. 
 
-##### Install grunt
+```
+API=http://localhost:3000/api/v0/
+TEST_USER=user@gmail.com
+TEST_PASSWORD=123456
+```
+
+The `API` config points towards the api that you would like to run the app against. `TEST_USER` and `TEST_PASSWORD` is a user in you test database that you can login with when using the automated test.
+
+This app runs off of nodejs &  `grunt` CLI, and there is some automated browser test ran by `dalekjs`.
+
+###### Install CLI Tools
 
 ```
 [sudo] npm install -g grunt-cli
+[sudo] npm install -d dalek-cli
 ```
 
 ##### Install dependecies
@@ -23,23 +34,13 @@ cd ~/app-directory
 npm install
 ```
 
-##### Getting Configured
-
-this project used dotenv to settup some configurable variables like api. Heres an example of what a common .env file looks like 
-
-```
-API=http://localhost:3000/api/v0/
-TEST_USER=jacoblowe2.0@gmail.com
-TEST_PASSWORD=123456
-```
-
 ##### Starting up
 
 ```
 grunt server
 ```
 
-this command will do a number of things, compile template, watch files and start the app. Also a process will run that will allow the templates to recompiled once the files are changed
+This command will do a number of things, compile template, watch files and start the app. Also a process will run that will allow the templates to recompiled once the files are changed
 
 #### Technologies
 - nodejs
