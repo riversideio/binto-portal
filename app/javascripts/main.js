@@ -122,7 +122,6 @@ if ( "_options" in window ) {
 				io.setUser( user );
 				if ( app.plans ) done();
 			} else {
-				debugger;
 				gotoStep('signup', _options || {});
 			}
 		}		
