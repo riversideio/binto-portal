@@ -15,6 +15,10 @@ hbs.registerHelper( "json", function( context ){
   return JSON.stringify( context );
 });
 
+hbs.registerHelper( "json", function( context ){
+  return JSON.stringify( context );
+});
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3030);
   app.engine('hbs', hbs.__express);

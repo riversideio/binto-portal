@@ -14,7 +14,8 @@ An open source member portal for coworking spaces. Built on top off [binto-api](
 git clone https://github.com/riversideio/binto-portal.git
 cd binto-portal
 heroku create
-heroku config:set API=http://your-binto-api.herokuapp.com/api/v0/
+heroku config:set BINTO_API=http://your-binto-api.herokuapp.com/api/v0/
+heroku config:set PORTAL_TITLE=Riverside.io
 git push heroku master
 ```
 
@@ -41,7 +42,7 @@ cp .env.example .env
 grunt server
 ```
 
-Notes: The `API` setting in `.env.` points towards the api that you would like to run the app against. `TEST_USER` and `TEST_PASSWORD` is a user in you test database that you can login with when using the automated test.
+Notes: The `BINTO_API` setting in `.env.` points towards the api that you would like to run the app against. `TEST_USER` and `TEST_PASSWORD` is a user in you test database that you can login with when using the automated test.
 
 ### Additional Notes
 
