@@ -48,10 +48,10 @@ define('donateReady', [ 'jquery', 'validate' ], function ( $, validate ) {
 			
 
 
-			app.io.users.charge( data, callback );
+			app.binto.users.charge( data, callback );
 			payloadAmount = data.amount;
 		}, function ( ) {
-			app.io.users.show({
+			app.binto.users.show({
 				id : app.user.id
 			}, function ( err, res ) {
 				if ( err ) return console.warn( err );

@@ -1,7 +1,7 @@
 define('creditcardReady', [ 'jquery' ], function ( $ ) {
 	return function ( ) {
-		app.form.handler({}, app.io.users.updateCard, function ( ) {
-			app.io.users.show({
+		app.form.handler({}, app.binto.users.updateCard, function ( ) {
+			app.binto.users.show({
 				id : app.user.id
 			}, function ( err, res ) {
 				if ( err ) return console.warn( err );

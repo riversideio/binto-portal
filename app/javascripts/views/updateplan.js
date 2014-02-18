@@ -16,7 +16,7 @@ define('updateplanReady', [ 'jquery' ], function ( $ ) {
 
 			if ( planId ) {
 				$submit.text('Updating...');
-				return app.io.users.updatePlan({
+				return app.binto.users.updatePlan({
 					id : app.user.id,
 					plan : planId
 				}, function ( err, res ) {

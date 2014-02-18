@@ -5,7 +5,7 @@ define('cancelplanReady', [ 'jquery' ], function ( $ ) {
 
 		$yes.on('click', function ( e ) {
 			$yes.text('Canceling...');
-			app.io.users.cancelPlan({
+			app.binto.users.cancelPlan({
 				id : app.user.id
 			}, function ( err, res ) {
 				if ( err ) return console.warn( err );

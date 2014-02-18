@@ -2,10 +2,10 @@ define('loginReady', [  ], function ( ) {
 	return function ( ) {
 		app.form.handler({
 			buttonProccessing : 'Logging In...'
-		}, app.io.users.login, function ( res ) {
+		}, app.binto.users.login, function ( res ) {
 			app.$switch.remove();
 			app.key = res.user.session_token;
-			app.io.users.show({
+			app.binto.users.show({
 				id : res.user.id
 			}, function ( err, resp ) {
 				if ( err ) return console.warn( err );

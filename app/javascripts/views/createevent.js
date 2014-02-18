@@ -86,7 +86,7 @@ define('eventsReady',
 					} );
 				}
 
-				app.io.events.create( payload, next );
+				app.binto.events.create( payload, next );
 
 			}, function ( _event ) {
 				var payload = app.user;
@@ -99,7 +99,7 @@ define('eventsReady',
 
 			// get events for month
 			// to avoid overlap
-			app.io.events.all({
+			app.binto.events.all({
 				orderBy : 'startTime',
 				singleEvents : true,
 				timeMin : today.format(),

@@ -8,7 +8,7 @@ require.config({
 		'pikaday' : '/javascripts/libs/pikaday',
 		'__tmp' : '/javascripts/templates',
 		'form' : '/javascripts/form',
-		'io' : '/javascripts/sdk',
+		'binto' : '/javascripts/binto-js',
 		'validate' : '/javascripts/validate',
 		'ready' : '/javascripts/views/index',
 	}
@@ -16,7 +16,7 @@ require.config({
 
 if ( "_options" in window ) {
 
-	require(['jquery', 'io', 'form', '__tmp', 'ready'], function ( $, io, form, __tmp, ready ) {
+	require(['jquery', 'binto', 'form', '__tmp', 'ready'], function ( $, binto, form, __tmp, ready ) {
 
 		var done,	
 			user,
@@ -27,10 +27,10 @@ if ( "_options" in window ) {
 			back;
 
 		app.$el = $('.main');
-		app.io = io;
+		app.binto = binto;
 		app.form = form;
 		app.$switch = $('.login-switch');
-		io.setUrl( _options.api );
+		binto.setUrl( _options.api );
 		app.ready = ready;
 
 		app.logout = function ( ) {
@@ -119,7 +119,7 @@ if ( "_options" in window ) {
 				};
 				app.user = user;
 				app.plans = plans;
-				io.setUser( user );
+				binto.setUser( user );
 				if ( app.plans ) done();
 			} else {
 				gotoStep('signup', _options || {});
@@ -129,7 +129,7 @@ if ( "_options" in window ) {
 		app.gotoStep = gotoStep;
 		app.gotoView = gotoView;
 		// preload plans
-		io.plans.all( function ( err, res ) {
+		binto.plans.all( function ( err, res ) {
 			if ( err ) console.warn( err );
 			for( var i = 0; i < res.plans.length; i += 1 ) {
 				res.plans[ i ].amount = res.plans[ i ].amount / 100; 
