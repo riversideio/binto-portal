@@ -1,5 +1,7 @@
 # binto-portal
 
+![](https://raw2.github.com/riversideio/binto-api/master/binto.jpg)
+
 An open source member portal for coworking spaces. Built on top off [binto-api](http://github.com/riversideio/binto-api). Accept new signups, make donations, allow members to update and cancel their membership, and more.
 
 ## Quickstart
