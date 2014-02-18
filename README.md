@@ -18,35 +18,31 @@ git push heroku master
 
 You're done. Visit <http://your-binto-portal.herokuapp.com>. 
 
-#### Settup
+## Development Setup
 
-You will need to create a `.env` file in the root of the directory. This will hold all of you enviroment variables. 
+1. [Setup binto-api](https://github.com/riversideio/binto-api#development-setup) locally and make sure it is running.
+
+2. Run the following commands.
+
 
 ```
-API=http://localhost:3000/api/v0/
-TEST_USER=user@gmail.com
-TEST_PASSWORD=123456
+npm install
+cp .env.example .env
+grunt server
 ```
 
-The `API` config points towards the api that you would like to run the app against. `TEST_USER` and `TEST_PASSWORD` is a user in you test database that you can login with when using the automated test.
+Notes: The `API` setting in `.env.` points towards the api that you would like to run the app against. `TEST_USER` and `TEST_PASSWORD` is a user in you test database that you can login with when using the automated test.
 
-This app runs off of nodejs &  `grunt` CLI, and there is some automated browser test ran by `dalekjs`.
+### Additional Notes
 
-###### Install CLI Tools
+#### Install CLI Tools
 
 ```
 [sudo] npm install -g grunt-cli
 [sudo] npm install -d dalek-cli
 ```
 
-##### Install dependecies
-
-```
-cd ~/app-directory
-npm install
-```
-
-##### Starting up
+#### Starting up
 
 ```
 grunt server
@@ -55,6 +51,7 @@ grunt server
 This command will do a number of things, compile template, watch files and start the app. Also a process will run that will allow the templates to recompiled once the files are changed
 
 #### Technologies
+
 - nodejs
 - handlebars
 - jquery
