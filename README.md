@@ -18,6 +18,14 @@ git push heroku master
 
 You're done. Visit <http://your-binto-portal.herokuapp.com>. 
 
+## Screenshots
+
+![](https://raw2.github.com/riversideio/binto-portal/master/screenshots/signup.png)
+
+![](https://raw2.github.com/riversideio/binto-portal/master/screenshots/update.png)
+
+![](https://raw2.github.com/riversideio/binto-portal/master/screenshots/plan.png)
+
 ## Development Setup
 
 1. [Setup binto-api](https://github.com/riversideio/binto-api#development-setup) locally and make sure it is running.
