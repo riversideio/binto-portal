@@ -1,10 +1,6 @@
-## Magnolia Bloom
+## binto-portal
 
-Coworking Member Portal. This is a tool to allow member access their information, and also accept new signups.
-
-#### Victoria Club
-
-This app uses [riversideio/victoriaclub](https://github.com/riversideio/victoria-club) as an api to get member data.
+An open source member portal for coworking spaces. Built on top off [binto-api](http://github.com/riversideio/binto-api). Accept new signups, make donations, and update member information.
 
 #### Settup
 
