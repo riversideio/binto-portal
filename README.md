@@ -1,6 +1,22 @@
-## binto-portal
+# binto-portal
 
 An open source member portal for coworking spaces. Built on top off [binto-api](http://github.com/riversideio/binto-api). Accept new signups, make donations, allow members to update and cancel their membership, and more.
+
+## Quickstart
+
+1. [Setup binto-api](https://github.com/riversideio/binto-api).
+
+2. Run the following commands.
+
+```
+git clone https://github.com/riversideio/binto-portal.git
+cd binto-portal
+heroku create
+heroku config:set API=http://your-binto-api.herokuapp.com/api/v0/
+git push heroku master
+```
+
+You're done. Visit <http://your-binto-portal.herokuapp.com>. 
 
 #### Settup
 
