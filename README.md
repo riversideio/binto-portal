@@ -15,7 +15,7 @@ git clone https://github.com/riversideio/binto-portal.git
 cd binto-portal
 heroku create
 heroku config:set BINTO_API=http://your-binto-api.herokuapp.com/api/v0/
-heroku config:set PORTAL_TITLE=Riverside.io PORTAL_URL=http://riverside.io
+heroku config:set PORTAL_TITLE=Riverside.io PORTAL_URL=http://riverside.io PORTAL_EMAIL=info@riverside.io
 git push heroku master
 ```
 

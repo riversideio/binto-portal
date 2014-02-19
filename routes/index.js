@@ -17,6 +17,7 @@ module.exports = {
 		payload.api           = process.env.BINTO_API || 'http://localhost:3000/api/v0/';
     payload.portal_title  = process.env.PORTAL_TITLE || 'binto-portal'; 
     payload.portal_url    = process.env.PORTAL_URL || 'http://github.com/riversideio'; 
+    payload.portal_email  = process.env.PORTAL_EMAIL || 'binto-portal@mailinator.com'; 
 		res.render("index", payload);
 	}
 };
